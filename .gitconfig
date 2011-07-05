@@ -1,0 +1,18 @@
+[user]
+	name = Daniel Teixeira
+	email = daniel@tagview.com.br
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	last = cat-file commit HEAD
+[core]
+	excludesfile = /home/daniel/.gitignore
+[help]
+	format = web
+[push]
+	default = current
+[color]
+	diff = auto
+	status = auto
+	branch = auto
