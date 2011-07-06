@@ -111,6 +111,3 @@ export IRBRC=$HOME/.irbrc
 export CDPATH=$CDPATH:$HOME/workspace
 export PS1='\[\033[1;33m\]\w\[\033[0m\] ($(~/.rvm/bin/rvm-prompt)) $(__git_ps1 "[ %s ]")\n$ '
 
-
-alias productivity="ruby -e '(1..1000).each {|i| sleep i/1000.0; print \"#{%Q{\b} * 100}#{%q{.} * (i.div 10)} (#{i.div 10}%)\" }'"
-
