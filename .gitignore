@@ -1,5 +1,5 @@
 *.swp
 *.swo
 .rvmrc
-config/environments/dev2.rb
-config/initializers/_custom.rb
+vendor/ruby
+vendor/bundle
