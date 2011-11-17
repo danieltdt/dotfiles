@@ -111,3 +111,5 @@ export IRBRC=$HOME/.irbrc
 export CDPATH=$CDPATH:$HOME/workspace
 export PS1='\[\033[1;33m\]\w\[\033[0m\] ($(~/.rvm/bin/rvm-prompt)) $(__git_ps1 "[ %s ]")\n$ '
 
+# Set vi mode
+set -o vi

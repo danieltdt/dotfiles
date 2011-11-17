@@ -3,3 +3,4 @@
 .rvmrc
 vendor/ruby
 vendor/bundle
+*~
