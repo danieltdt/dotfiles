@@ -8,7 +8,6 @@ gemcutter_key: 66...cf
 - http://gemcutter.org
 - http://gems.rubyforge.org/
 - http://gems.github.com/
-- http://gems.datamapper.org
 :backtrace: false
 :bulk_threshold: 1000
 update: --env-shebang
