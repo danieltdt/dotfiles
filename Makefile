@@ -10,13 +10,13 @@ RDEBUGRC	= .rdebugrc
 
 backupfiles:
 	mkdir -p ${HOME}/.dotfiles.old 2> /dev/null
-	mv -f ${HOME}/${BASH_ALIASES} ${HOME}/.dotfiles.old 2> /dev/null
-	mv -f ${HOME}/${BASHRC} ${HOME}/.dotfiles.old 2> /dev/null
-	mv -f ${HOME}/${BASH_PROFILE} ${HOME}/.dotfiles.old 2> /dev/null
-	mv -f ${HOME}/${GEMRC} ${HOME}/.dotfiles.old 2> /dev/null
-	mv -f ${HOME}/${GITCONFIG} ${HOME}/.dotfiles.old 2> /dev/null
-	mv -f ${HOME}/${GITIGNORE} ${HOME}/.dotfiles.old 2> /dev/null
-	mv -f ${HOME}/${RDEBUGRC} ${HOME}/.dotfiles.old 2> /dev/null
+	if [ -f "${HOME}/${BASH_ALIASES}" ]; then mv -f ${HOME}/${BASH_ALIASES} ${HOME}/.dotfiles.old 2> /dev/null; fi
+	if [ -f "${HOME}/${BASHRC}" ]; then mv -f ${HOME}/${BASHRC} ${HOME}/.dotfiles.old 2> /dev/null; fi
+	if [ -f "${HOME}/${BASH_PROFILE}" ]; then mv -f ${HOME}/${BASH_PROFILE} ${HOME}/.dotfiles.old 2> /dev/null; fi
+	if [ -f "${HOME}/${GEMRC}" ]; then mv -f ${HOME}/${GEMRC} ${HOME}/.dotfiles.old 2> /dev/null; fi
+	if [ -f "${HOME}/${GITCONFIG}" ]; then mv -f ${HOME}/${GITCONFIG} ${HOME}/.dotfiles.old 2> /dev/null; fi
+	if [ -f "${HOME}/${GITIGNORE}" ]; then mv -f ${HOME}/${GITIGNORE} ${HOME}/.dotfiles.old 2> /dev/null; fi
+	if [ -f "${HOME}/${RDEBUGRC}" ]; then mv -f ${HOME}/${RDEBUGRC} ${HOME}/.dotfiles.old 2> /dev/null; fi
 
 symlinks:
 	ln -s ${PWD}/${BASH_ALIASES} ${HOME}/${BASH_ALIASES}
