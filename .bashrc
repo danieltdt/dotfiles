@@ -99,6 +99,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.bash_colors" ]] && . "$HOME/.bash_colors"
 
 ##########################
 # Git env vars
@@ -106,9 +107,20 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
+
 export IRBRC=$HOME/.irbrc
 export CDPATH=$CDPATH:$HOME/workspace
-export PS1='\[\033[1;33m\]\w\[\033[0m\] ($($rvm_bin_path/rvm-prompt)) $(__git_ps1 "[ %s ]")\n$ '
+
+USER_AT_HOST="\u@\h"
+if [[ $UID -ne 0 ]]; then
+  #WORKING_DIR="\[\033[1:33m\]\w\[\033[0m\]"
+  WORKING_DIR="${BRIGHT_YELLOW}\w${RESET}"
+else
+  #WORKING_DIR="\[\033[1:31m\]\w\[\033[0m\]"
+  WORKING_DIR="${BRIGHT_RED}\w${RESET}"
+fi
+RVM_GIT='($($rvm_bin_path/rvm-prompt)) $(__git_ps1 "[ %s ]")'
+export PS1="${USER_AT_HOST}:${WORKING_DIR} ${RVM_GIT}\n$ "
 
 # Set vi mode
 set -o vi
