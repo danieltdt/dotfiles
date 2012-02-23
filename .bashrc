@@ -98,18 +98,17 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
 ##########################
 # Git env vars
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 export IRBRC=$HOME/.irbrc
 export CDPATH=$CDPATH:$HOME/workspace
-export PS1='\[\033[1;33m\]\w\[\033[0m\] ($(~/.rvm/bin/rvm-prompt)) $(__git_ps1 "[ %s ]")\n$ '
+export PS1='\[\033[1;33m\]\w\[\033[0m\] ($($rvm_bin_path/rvm-prompt)) $(__git_ps1 "[ %s ]")\n$ '
 
 # Set vi mode
 set -o vi
