@@ -113,10 +113,8 @@ export CDPATH=$CDPATH:$HOME/workspace
 
 USER_AT_HOST="\u@\h"
 if [[ $UID -ne 0 ]]; then
-  #WORKING_DIR="\[\033[1:33m\]\w\[\033[0m\]"
   WORKING_DIR="${BRIGHT_YELLOW}\w${RESET}"
 else
-  #WORKING_DIR="\[\033[1:31m\]\w\[\033[0m\]"
   WORKING_DIR="${BRIGHT_RED}\w${RESET}"
 fi
 RVM_GIT='($($rvm_bin_path/rvm-prompt)) $(__git_ps1 "[ %s ]")'
