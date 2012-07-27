@@ -6,10 +6,12 @@
 	co = checkout
 	ci = commit
 	last = cat-file commit HEAD
+	colete = blame
 [core]
 	excludesfile = /home/daniel/.gitignore
 [help]
 	format = web
+	autocorrect = -1
 [push]
 	default = current
 [color]
