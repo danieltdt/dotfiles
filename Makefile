@@ -1,13 +1,15 @@
 PWD ?= `pwd`
 HOME ?= `echo $$HOME`
 BASH_ALIASES	= .bash_aliases
-BASHRC		= .bashrc
+BASHRC			= .bashrc
 BASH_PROFILE	= .bash_profile
-BASH_COLORS	= .bash_colors
-GEMRC		= .gemrc
-GITCONFIG	= .gitconfig
-GITIGNORE	= .gitignore
-RDEBUGRC	= .rdebugrc
+BASH_COLORS		= .bash_colors
+GEMRC			= .gemrc
+GITCONFIG		= .gitconfig
+GITIGNORE		= .gitignore
+RDEBUGRC		= .rdebugrc
+VIMRC			= .vimrc
+BUNDLE			= .bundle
 
 backupfiles:
 	mkdir -p ${HOME}/.dotfiles.old 2> /dev/null
@@ -19,6 +21,8 @@ backupfiles:
 	if [ -f "${HOME}/${GITCONFIG}" ]; then mv -f ${HOME}/${GITCONFIG} ${HOME}/.dotfiles.old 2> /dev/null; fi
 	if [ -f "${HOME}/${GITIGNORE}" ]; then mv -f ${HOME}/${GITIGNORE} ${HOME}/.dotfiles.old 2> /dev/null; fi
 	if [ -f "${HOME}/${RDEBUGRC}" ]; then mv -f ${HOME}/${RDEBUGRC} ${HOME}/.dotfiles.old 2> /dev/null; fi
+	if [ -f "${HOME}/${VIMRC}" ]; then mv -f ${HOME}/${VIMRC} ${HOME}/.dotfiles.old 2> /dev/null; fi
+	if [ -f "${HOME}/${BUNDLE}" ]; then mv -f ${HOME}/${BUNDLE} ${HOME}/.dotfiles.old 2> /dev/null; fi
 
 symlinks:
 	ln -s ${PWD}/${BASH_ALIASES} ${HOME}/${BASH_ALIASES}
@@ -29,5 +33,7 @@ symlinks:
 	ln -s ${PWD}/${GITCONFIG} ${HOME}/${GITCONFIG}
 	ln -s ${PWD}/${GITIGNORE} ${HOME}/${GITIGNORE}
 	ln -s ${PWD}/${RDEBUGRC} ${HOME}/${RDEBUGRC}
+	ln -s ${PWD}/${VIMRC} ${HOME}/${VIMRC}
+	ln -s ${PWD}/${BUNDLE} ${HOME}/${BUNDLE}
 
 install: backupfiles symlinks
