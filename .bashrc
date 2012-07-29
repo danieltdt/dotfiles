@@ -111,6 +111,8 @@ export GIT_PS1_SHOWUPSTREAM=auto
 export IRBRC=$HOME/.irbrc
 export CDPATH=$CDPATH:$HOME/workspace
 
+export PATH=$PATH:/opt/node/bin
+
 USER_AT_HOST="\u@\h"
 if [[ $UID -ne 0 ]]; then
   WORKING_DIR="${BRIGHT_YELLOW}\w${RESET}"
