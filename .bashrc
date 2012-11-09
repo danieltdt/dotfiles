@@ -115,7 +115,7 @@ export PATH=$PATH:/opt/node/bin
 
 USER_AT_HOST="\u@\h"
 if [[ $UID -ne 0 ]]; then
-  WORKING_DIR="${BRIGHT_YELLOW}\w${RESET}"
+  WORKING_DIR="${BRIGHT_BLUE}\w${RESET}"
 else
   WORKING_DIR="${BRIGHT_RED}\w${RESET}"
 fi
@@ -124,3 +124,5 @@ export PS1="${USER_AT_HOST}:${WORKING_DIR} ${RVM_GIT}\n$ "
 
 # Set vi mode
 set -o vi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
