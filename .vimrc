@@ -13,7 +13,7 @@ set wildignore+=.bundle/gems/**,log/**
 if has("gui_running")
     colorscheme railscasts2
     if has("gui_gnome")
-        set guifont=Monospace\ 8
+        set guifont=Ubuntu\ Mono\ 10
     endif
 
     if has("gui_win32") || has("gui_win32s")
