@@ -115,7 +115,7 @@ export PATH=$PATH:/opt/node/bin
 
 USER_AT_HOST="\u@\h"
 if [[ $UID -ne 0 ]]; then
-  WORKING_DIR="${BRIGHT_BLUE}\w${RESET}"
+  WORKING_DIR="${BRIGHT_GREEN}\w${RESET}"
 else
   WORKING_DIR="${BRIGHT_RED}\w${RESET}"
 fi
