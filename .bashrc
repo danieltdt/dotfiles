@@ -108,6 +108,11 @@ export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM=auto
 
+#########################
+# Ruby Env vars
+export RUBY_GC_MALLOC_LIMIT=60000000
+export RUBY_FREE_MIN=200000
+
 export IRBRC=$HOME/.irbrc
 export CDPATH=$CDPATH:$HOME/workspace
 
