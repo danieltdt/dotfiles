@@ -131,3 +131,4 @@ export PS1="${USER_AT_HOST}:${WORKING_DIR} ${RVM_GIT}\n$ "
 set -o vi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/Applications/sbt/bin # Scala build tool
