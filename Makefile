@@ -10,6 +10,7 @@ GITIGNORE		= .gitignore
 RDEBUGRC		= .rdebugrc
 VIMRC			= .vimrc
 BUNDLE			= .bundle
+RSPEC			= .rspec
 
 backupfiles:
 	mkdir -p ${HOME}/.dotfiles.old 2> /dev/null
@@ -23,6 +24,7 @@ backupfiles:
 	if [ -f "${HOME}/${RDEBUGRC}" ]; then mv -f ${HOME}/${RDEBUGRC} ${HOME}/.dotfiles.old 2> /dev/null; fi
 	if [ -f "${HOME}/${VIMRC}" ]; then mv -f ${HOME}/${VIMRC} ${HOME}/.dotfiles.old 2> /dev/null; fi
 	if [ -f "${HOME}/${BUNDLE}" ]; then mv -f ${HOME}/${BUNDLE} ${HOME}/.dotfiles.old 2> /dev/null; fi
+	if [ -f "${HOME}/${RSPEC}" ]; then mv -f ${HOME}/${RSPEC} ${HOME}/.dotfiles.old 2> /dev/null; fi
 
 symlinks:
 	ln -s ${PWD}/${BASH_ALIASES} ${HOME}/${BASH_ALIASES}
@@ -35,5 +37,6 @@ symlinks:
 	ln -s ${PWD}/${RDEBUGRC} ${HOME}/${RDEBUGRC}
 	ln -s ${PWD}/${VIMRC} ${HOME}/${VIMRC}
 	ln -s ${PWD}/${BUNDLE} ${HOME}/${BUNDLE}
+	ln -s ${PWD}/${RSPEC} ${HOME}/${RSPEC}
 
 install: backupfiles symlinks
