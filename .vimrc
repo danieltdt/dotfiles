@@ -1,15 +1,9 @@
 " Loading vim
 source ~/.vim/vimrc
 
-autocmd FileType coffee set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
-autocmd FileType js set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
+" Redefining @reu defaults
 
-" Use system clipboard
-set clipboard=unnamedplus
-
-" Ignore gems and log for fuzzy find
-set wildignore+=.bundle/gems/**,log/**
-
+" Redefine colorschema and fonts
 if has("gui_running")
     colorscheme railscasts2
     if has("gui_gnome")
@@ -22,6 +16,20 @@ if has("gui_running")
     endif
 else
     if $COLORTERM == 'gnome-terminal'
-        colorscheme railscasts2
+      colorscheme railscasts2
     endif
 endif
+
+" Fix tab for js and coffee
+autocmd FileType coffee set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
+autocmd FileType js set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
+
+" Fix IndentGuides for terminal
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#252525 ctermbg=0
+
+" Use system clipboard
+set clipboard=unnamedplus
+
+" Ignore gems and log for fuzzy find
+set wildignore+=.bundle/gems/**,log/**
