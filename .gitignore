@@ -7,3 +7,4 @@ vendor/bundle
 .bundle/**/*
 *~
 spec/support/firefox_executable.rb
+tmux.sh
