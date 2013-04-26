@@ -26,7 +26,7 @@ autocmd FileType js set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop
 
 " Fix IndentGuides for terminal
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#252525 ctermbg=8
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#252525 ctermbg=0
 
 " Use system clipboard
 set clipboard=unnamedplus
