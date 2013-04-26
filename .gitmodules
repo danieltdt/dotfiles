@@ -1,0 +1,3 @@
+[submodule "tmux"]
+	path = tmux
+	url = git://git.code.sf.net/p/tmux/tmux-code
