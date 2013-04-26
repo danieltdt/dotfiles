@@ -4,3 +4,6 @@
 [submodule "powerline"]
 	path = powerline
 	url = git://github.com/Lokaltog/powerline
+[submodule "vimfiles"]
+	path = vimfiles
+	url = git@github.com:danieltdt/vimfiles.git
