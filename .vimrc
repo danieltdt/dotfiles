@@ -4,6 +4,7 @@ source ~/.vim/vimrc
 " Redefining @reu defaults
 set wrap
 let &showbreak = '↳ '
+nnoremap <F5> :buffers<CR>:buffer<Space>
 
 " Redefine colorschema and fonts
 if has("gui_running")
