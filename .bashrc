@@ -98,8 +98,18 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 [[ -s "$HOME/.bash_colors" ]] && . "$HOME/.bash_colors"
+
+#########################
+# Enable rbenv shims and autocompletion
+eval "$(rbenv init -)"
+
+# rbenv prompt (from https://gist.github.com/kyanny/1668822)
+__rbenv_ps1 ()
+{
+  rbenv_ruby_version=`rbenv version | sed -e 's/ .*//'`
+  printf $rbenv_ruby_version
+}
 
 ##########################
 # Git env vars
@@ -116,19 +126,19 @@ export RUBY_FREE_MIN=200000
 export IRBRC=$HOME/.irbrc
 export CDPATH=$CDPATH:$HOME/workspace
 
-export PATH=$PATH:/opt/node/bin
-
 USER_AT_HOST="\u@\h"
 if [[ $UID -ne 0 ]]; then
   WORKING_DIR="${BRIGHT_GREEN}\w${RESET}"
 else
   WORKING_DIR="${BRIGHT_RED}\w${RESET}"
 fi
-RVM_GIT='($($rvm_bin_path/rvm-prompt)) $(__git_ps1 "[ %s ]")'
-export PS1="${USER_AT_HOST}:${WORKING_DIR} ${RVM_GIT}\n$ "
+export PS1="${USER_AT_HOST}:${WORKING_DIR} $(__rbenv_ps1)$(__git_ps1)\n$ "
 
 # Set vi mode
 set -o vi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/Applications/sbt/bin # Scala build tool
+# Defining PATH
+PATH=/opt/node/bin:$PATH # Nodejs
+PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
+PATH=$HOME/Applications/sbt/bin:$PATH # Scala build tool
+export PATH
