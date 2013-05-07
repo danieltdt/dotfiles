@@ -100,6 +100,13 @@ fi
 
 [[ -s "$HOME/.bash_colors" ]] && . "$HOME/.bash_colors"
 
+
+# Defining PATH
+PATH=/opt/node/bin:$PATH # Nodejs
+PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
+PATH=$HOME/Applications/sbt/bin:$PATH # Scala build tool
+export PATH
+
 #########################
 # Enable rbenv shims and autocompletion
 eval "$(rbenv init -)"
@@ -132,13 +139,8 @@ if [[ $UID -ne 0 ]]; then
 else
   WORKING_DIR="${BRIGHT_RED}\w${RESET}"
 fi
-export PS1="${USER_AT_HOST}:${WORKING_DIR} $(__rbenv_ps1)$(__git_ps1)\n$ "
+RBENV_GIT='($(__rbenv_ps1)) $(__git_ps1 "[ %s ]")'
+export PS1="${USER_AT_HOST}:${WORKING_DIR} ${RBENV_GIT}\n$ "
 
 # Set vi mode
 set -o vi
-
-# Defining PATH
-PATH=/opt/node/bin:$PATH # Nodejs
-PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
-PATH=$HOME/Applications/sbt/bin:$PATH # Scala build tool
-export PATH
