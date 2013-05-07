@@ -2,6 +2,7 @@
 source ~/.vim/vimrc
 
 " Redefining @reu defaults
+Bundle 'rainerborene/vim-reek'
 set wrap
 let &showbreak = '↳ '
 nnoremap <F5> :buffers<CR>:buffer<Space>
