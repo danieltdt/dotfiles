@@ -100,15 +100,9 @@ fi
 
 [[ -s "$HOME/.bash_colors" ]] && . "$HOME/.bash_colors"
 
-
-# Defining PATH
-PATH=/opt/node/bin:$PATH # Nodejs
-PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
-PATH=$HOME/Applications/sbt/bin:$PATH # Scala build tool
-export PATH
-
 #########################
 # Enable rbenv shims and autocompletion
+export PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
 eval "$(rbenv init -)"
 
 # rbenv prompt (from https://gist.github.com/kyanny/1668822)
@@ -130,9 +124,18 @@ export GIT_PS1_SHOWUPSTREAM=auto
 export RUBY_GC_MALLOC_LIMIT=60000000
 export RUBY_FREE_MIN=200000
 
-export IRBRC=$HOME/.irbrc
-export CDPATH=$CDPATH:$HOME/workspace
+#########################
+# Defining & redefining some env vars
+export M2_HOME=$HOME/Applications/apache-maven-3.0.5  # Maven home
+export M2=$M2_HOME/bin                                # Maven bin
+export IRBRC=$HOME/.irbrc                             # irb config
+export CDPATH=$CDPATH:$HOME/workspace                 # workspace on cd
+export PATH=/opt/node/bin:$PATH                       # Nodejs
+export PATH=$HOME/Applications/sbt/bin:$PATH          # Scala build tool
+export PATH=$M2:$PATH                                 # Maven
 
+#########################
+# Prompt
 USER_AT_HOST="\u@\h"
 if [[ $UID -ne 0 ]]; then
   WORKING_DIR="${BRIGHT_GREEN}\w${RESET}"
@@ -142,5 +145,6 @@ fi
 RBENV_GIT='($(__rbenv_ps1)) $(__git_ps1 "[ %s ]")'
 export PS1="${USER_AT_HOST}:${WORKING_DIR} ${RBENV_GIT}\n$ "
 
+##########################
 # Set vi mode
 set -o vi
