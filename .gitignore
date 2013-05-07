@@ -5,6 +5,7 @@ vendor/ruby
 vendor/bundle
 .bundle
 .bundle/**/*
+.ruby-version
 *~
 spec/support/firefox_executable.rb
 tmux.sh
