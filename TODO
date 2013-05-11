@@ -5,3 +5,4 @@ ln -sf /home/daniel/workspace/dotfiles/.tmux.conf /home/daniel/.tmux.conf
 ln -s  /home/daniel/workspace/dotfiles/vimfiles /home/daniel/.vim
 ln -s  /home/daniel/workspace/dotfiles/tmux /home/daniel/workspace/tmux
 ln -s  /home/daniel/workspace/dotfiles/powerline /home/daniel/workspace/powerline
+pip install --user -e /home/daniel/workspace/powerline

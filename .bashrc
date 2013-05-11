@@ -130,20 +130,16 @@ export M2_HOME=$HOME/Applications/apache-maven-3.0.5  # Maven home
 export M2=$M2_HOME/bin                                # Maven bin
 export IRBRC=$HOME/.irbrc                             # irb config
 export CDPATH=$CDPATH:$HOME/workspace                 # workspace on cd
+export PATH=$HOME/.local/bin:$PATH                    # local executables
 export PATH=/opt/node/bin:$PATH                       # Nodejs
 export PATH=$HOME/Applications/sbt/bin:$PATH          # Scala build tool
 export PATH=$M2:$PATH                                 # Maven
 
 #########################
 # Prompt
-USER_AT_HOST="\u@\h"
-if [[ $UID -ne 0 ]]; then
-  WORKING_DIR="${BRIGHT_GREEN}\w${RESET}"
-else
-  WORKING_DIR="${BRIGHT_RED}\w${RESET}"
-fi
-RBENV_GIT='($(__rbenv_ps1)) $(__git_ps1 "[ %s ]")'
-export PS1="${USER_AT_HOST}:${WORKING_DIR} ${RBENV_GIT}\n$ "
+
+# POWER ALL THE LINE!
+. /home/daniel/workspace/powerline/powerline/bindings/bash/powerline.sh
 
 ##########################
 # Set vi mode
