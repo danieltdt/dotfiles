@@ -126,6 +126,7 @@ export RUBY_FREE_MIN=200000
 
 #########################
 # Defining & redefining some env vars
+export PYTHONPATH=$HOME/workspace/dotfiles/python-libs
 export M2_HOME=$HOME/Applications/apache-maven-3.0.5  # Maven home
 export M2=$M2_HOME/bin                                # Maven bin
 export IRBRC=$HOME/.irbrc                             # irb config

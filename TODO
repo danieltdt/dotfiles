@@ -7,5 +7,6 @@ ln -s  /home/daniel/workspace/dotfiles/tmux /home/daniel/workspace/tmux
 ln -s  /home/daniel/workspace/dotfiles/powerline /home/daniel/workspace/powerline
 ln -s  /home/daniel/workspace/dotfiles/powerline-configs /home/daniel/.config/powerline
 
-sudo apt-get install python-pip
+sudo apt-get install python-dev python-pip
+pip install pygit2
 pip install --user -e /home/daniel/workspace/powerline
