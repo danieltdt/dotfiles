@@ -3,10 +3,12 @@
 ln -sf /home/daniel/workspace/dotfiles/gnome-terminal-conf.xml /home/daniel/.gconf/apps/gnome-terminal/profiles/Default/%gconf.xml
 ln -sf /home/daniel/workspace/dotfiles/.tmux.conf /home/daniel/.tmux.conf
 ln -s  /home/daniel/workspace/dotfiles/vimfiles /home/daniel/.vim
-ln -s  /home/daniel/workspace/dotfiles/tmux /home/daniel/workspace/tmux
-ln -s  /home/daniel/workspace/dotfiles/powerline /home/daniel/workspace/powerline
-ln -s  /home/daniel/workspace/dotfiles/powerline-configs /home/daniel/.config/powerline
+ln -s  /home/daniel/workspace/dotfiles/tmux /home/daniel/workspace/tmux # and install it as README says
+
+ln -s /home/daniel/workspace/dotfiles/libgit2 /home/daniel/workspace/libgit2 # and install it as README says
+ln -s /home/daniel/workspace/dotfiles/powerline /home/daniel/workspace/powerline # and install it as README says
 
 sudo apt-get install python-dev python-pip
-pip install pygit2
+sudo pip install pygit2
 pip install --user -e /home/daniel/workspace/powerline
+ln -s  /home/daniel/workspace/dotfiles/powerline-configs /home/daniel/.config/powerline
