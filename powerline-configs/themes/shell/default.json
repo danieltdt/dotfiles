@@ -7,7 +7,7 @@
 				"only_if_ssh": true
 			}
 		},
-		"branch": {
+		"git_status": {
 			"before": " "
 		}
 	},
