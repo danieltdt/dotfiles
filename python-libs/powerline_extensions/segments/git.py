@@ -52,24 +52,27 @@ def git_status(pl, segment_info):
   try:
     import pygit2 as git
 
-    repo = git.Repository(segment_info['getcwd']()+'/.git')
+    try:
+      repo = git.Repository(segment_info['getcwd']()+'/.git')
+    except KeyError:
+      pass
+    else:
+      if repo is not None:
+        merging = 'MERGE' if os.path.isfile(repo.path+'/MERGE_HEAD') else ''
+        rebasing = 'REBASE' if os.path.isdir(repo.path+'/rebase-merge') else ''
+        cherry_picking = 'CHERRY-PICKING' if os.path.isfile(repo.path+'/CHERRY_PICK_HEAD') else ''
+        bisecting = 'BISECTING' if os.path.isfile(repo.path+'/BISECT_LOG') else ''
+        bare = 'BARE' if repo.is_bare else ''
 
-    if repo is not None:
-      merging = 'MERGE' if os.path.isfile(repo.path+'/MERGE_HEAD') else ''
-      rebasing = 'REBASE' if os.path.isdir(repo.path+'/rebase-merge') else ''
-      cherry_picking = 'CHERRY-PICKING' if os.path.isfile(repo.path+'/CHERRY_PICK_HEAD') else ''
-      bisecting = 'BISECTING' if os.path.isfile(repo.path+'/BISECT_LOG') else ''
-      bare = 'BARE' if repo.is_bare else ''
+        branch   = get_branch_name(os.path.abspath(repo.path+'..'))
+        status   = _better_status(repo, git)
+        stash    = _stash(repo)
+        upstream = _upstream(repo) if branch != '[DETACHED HEAD]' else ''
 
-      branch   = get_branch_name(os.path.abspath(repo.path+'..'))
-      status   = _better_status(repo, git)
-      stash    = _stash(repo)
-      upstream = _upstream(repo) if branch != '[DETACHED HEAD]' else ''
-
-      return [{
-        'contents': branch + ' ' + status + stash + upstream,
-        'highlight_group': 'branch',
-      }]
+        return [{
+          'contents': branch + ' ' + status + stash + upstream,
+          'highlight_group': 'branch',
+        }]
   except ImportError:
     return [{
       'contents': 'install pygit2',
