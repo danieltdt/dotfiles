@@ -7,9 +7,6 @@
 				"only_if_ssh": true
 			}
 		},
-		"virtualenv": {
-			"before": "ⓔ  "
-		},
 		"branch": {
 			"before": " "
 		}
@@ -23,23 +20,15 @@
 				"name": "user"
 			},
 			{
-				"name": "virtualenv"
-			},
-			{
 				"name": "cwd",
 				"args": {
 					"dir_limit_depth": 3
 				}
 			},
 			{
-				"name": "branch",
-				"args": {
-					"status_colors": true
-				}
-			},
-                        {
 				"name": "git_status",
-                                "module": "powerline_extensions.segments.git"
+                                "module":
+                                  "powerline_extensions.segments.git"
                         }
 		]
 	}

@@ -126,6 +126,7 @@ export RUBY_FREE_MIN=200000
 
 #########################
 # Defining & redefining some env vars
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$HOME/workspace/dotfiles/python-libs
 export M2_HOME=$HOME/Applications/apache-maven-3.0.5  # Maven home
 export M2=$M2_HOME/bin                                # Maven bin
