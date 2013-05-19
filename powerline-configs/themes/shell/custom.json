@@ -7,7 +7,7 @@
 				"only_if_ssh": true
 			}
 		},
-		"git_status": {
+		"status": {
 			"before": " "
 		}
 	},
@@ -26,7 +26,12 @@
 				}
 			},
 			{
-				"name": "git_status",
+				"name": "version",
+                                "module":
+                                  "powerline_extensions.segments.rbenv"
+                        },
+			{
+				"name": "status",
                                 "module":
                                   "powerline_extensions.segments.git"
                         }

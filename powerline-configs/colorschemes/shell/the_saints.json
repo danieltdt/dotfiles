@@ -1,0 +1,12 @@
+{
+	"name": "The Saints: http://www.saintsrow.com/about/gangs#saints",
+	"groups": {
+		"user":               { "fg": "saints4", "bg": "gray0", "attr": ["bold"] },
+		"superuser":          { "fg": "white", "bg": "brightred", "attr": ["bold"] },
+		"cwd":                { "fg": "white", "bg": "saints1" },
+		"cwd:divider":        { "fg": "white", "bg": "saints1" },
+		"cwd:current_folder": { "fg": "white", "bg": "saints2", "attr": ["bold"] },
+		"rbenv":              { "fg": "saints4", "bg": "saints0" },
+		"branch":             { "fg": "saints4", "bg": "saints0" }
+	}
+}

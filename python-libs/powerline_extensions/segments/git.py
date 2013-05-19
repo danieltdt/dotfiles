@@ -53,7 +53,7 @@ def _stash(repo):
   return '' if _cmd_output(repo, ['git', 'rev-parse', '--verify', 'refs/stash']).strip()  == '' else '$'
 
 @requires_segment_info
-def git_status(pl, segment_info):
+def status(pl, segment_info):
   ''' Shows git branch and repo status (basically extracted from __git_ps1)
   Requires pygit2!
   '''
