@@ -4,6 +4,7 @@ from __future__ import absolute_import
 import os
 import sys
 import subprocess
+import re
 
 from powerline.lib.vcs.git import get_branch_name
 from powerline.theme import requires_segment_info
@@ -32,14 +33,22 @@ def _better_status(repo, git): # It's better for me, ok?
   return "%s%s%s" % (untracked_flag, dirty_flag, index_flag)
 
 def _upstream(repo):
-  commits = _cmd_output(repo, ['git', 'rev-list', '--left-right', '@{u}...HEAD']).split()
+  commits_count = _cmd_output(repo, ['git', 'rev-list', '--count', '--left-right', '@{u}...HEAD'])
 
-  behind, ahead = '', ''
-  for commit in commits:
-    behind = u'↓' if commit[0] == '<' else behind
-    ahead  = u'↑' if commit[0] == '>' else ahead
+  if not commits_count: return '' # there is no upstream
 
-  return '%s%s' % (behind, ahead) if commits else '='
+  counts = re.split('\D', commits_count)
+  local_count, upstream_count = counts[0], counts[1]
+
+  if int(local_count) == 0 == int(upstream_count):
+    return '='
+  else:
+    upstream = ''
+    if int(local_count) > 0:
+      upstream += u'↓'
+    if int(upstream_count) > 0:
+      upstream += u'↑'
+    return upstream
 
 def _stash(repo):
   return '' if _cmd_output(repo, ['git', 'rev-parse', '--verify', 'refs/stash']).strip()  == '' else '$'
