@@ -1,6 +1,6 @@
 # Criar links simbólicos no Make
 
-ln -sf /home/daniel/workspace/dotfiles/gnome-terminal-conf.xml /home/daniel/.gconf/apps/gnome-terminal/profiles/Default/%gconf.xml
+cp /home/daniel/workspace/dotfiles/gnome-terminal-conf.xml /home/daniel/.gconf/apps/gnome-terminal/profiles/Default/%gconf.xml
 ln -sf /home/daniel/workspace/dotfiles/.tmux.conf /home/daniel/.tmux.conf
 ln -s  /home/daniel/workspace/dotfiles/vimfiles /home/daniel/.vim
 ln -s  /home/daniel/workspace/dotfiles/tmux /home/daniel/workspace/tmux # and install it as README says
