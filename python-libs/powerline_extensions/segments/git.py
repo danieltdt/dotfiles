@@ -29,7 +29,7 @@ def _better_status(repo, git): # It's better for me, ok?
     dirty_flag     = '*' if status & dirty_bit else dirty_flag # TODO: Why submodules always goes here?
     index_flag     = '+' if status & index_bit else index_flag
 
-  return untracked_flag + dirty_flag + index_flag
+  return "%s%s%s" % (untracked_flag, dirty_flag, index_flag)
 
 def _upstream(repo):
   commits = _cmd_output(repo, ['git', 'rev-list', '--left-right', '@{u}...HEAD']).split()
@@ -46,7 +46,7 @@ def _stash(repo):
 
 @requires_segment_info
 def git_status(pl, segment_info):
-  ''' Shows git branch and repo status (extracted from __git_ps1)
+  ''' Shows git branch and repo status (basically extracted from __git_ps1)
   Requires pygit2!
   '''
   try:
@@ -70,7 +70,7 @@ def git_status(pl, segment_info):
         upstream = _upstream(repo) if branch != '[DETACHED HEAD]' else ''
 
         return [{
-          'contents': branch + ' ' + status + stash + upstream,
+          'contents': "%s %s%s%s" % (branch, status, stash, upstream),
           'highlight_group': 'branch',
         }]
   except ImportError:
