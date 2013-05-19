@@ -26,7 +26,7 @@ def _better_status(repo, git): # It's better for me, ok?
     if status & ignored_bit: continue
 
     untracked_flag = '%' if status & untracked_bit else untracked_flag
-    dirty_flag     = '*' if status & dirty_bit else dirty_flag
+    dirty_flag     = '*' if status & dirty_bit else dirty_flag # TODO: Why submodules always goes here?
     index_flag     = '+' if status & index_bit else index_flag
 
   return untracked_flag + dirty_flag + index_flag
@@ -88,7 +88,7 @@ def _cmd_output(repo, cmd):
     os.chdir(repo.path)
 
     with open(os.devnull, 'w') as fnull:
-      ret = subprocess.check_output(cmd, fnull)
+      ret = subprocess.check_output(cmd, stderr=fnull)
 
     os.chdir(current)
 
