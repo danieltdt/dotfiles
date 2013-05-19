@@ -1,0 +1,41 @@
+{
+	"default_module": "powerline.segments.common",
+	"segment_data": {
+		"date": {
+			"before": "⌚ "
+		},
+		"secure_email_imap_alert": {
+			"before": "✉ "
+		}
+	},
+	"segments": {
+		"right": [
+			{
+				"name": "network_load",
+				"priority": 50
+			},
+			{
+				"name": "system_load",
+				"priority": 50
+			},
+			{
+				"name": "date"
+			},
+			{
+				"name": "date",
+				"args": {
+					"format": "%H:%M",
+					"istime": true
+				}
+			},
+			{
+				"name": "secure_email_imap_alert",
+				"priority": 10,
+				"module": "powerline_extensions.segments.email"
+			},
+			{
+				"name": "hostname"
+			}
+		]
+	}
+}

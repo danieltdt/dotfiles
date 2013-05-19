@@ -112,12 +112,12 @@ __rbenv_ps1 ()
   printf $rbenv_ruby_version
 }
 
-##########################
-# Git env vars
-export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWSTASHSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
-export GIT_PS1_SHOWUPSTREAM=auto
+#########################
+# Load sensitive env vars (like application-specific password for google
+# account)
+if [ -f ~/.env ]; then
+    . ~/.env
+fi
 
 #########################
 # Ruby Env vars

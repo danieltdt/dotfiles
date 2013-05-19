@@ -20,7 +20,7 @@
 		},
 		"tmux": {
 			"colorscheme": "default",
-			"theme": "default"
+			"theme": "custom"
 		},
 		"vim": {
 			"colorscheme": "default",
