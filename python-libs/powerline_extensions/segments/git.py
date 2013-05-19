@@ -36,10 +36,10 @@ def _upstream(repo):
 
   behind, ahead = '', ''
   for commit in commits:
-    behind = u' ↓' if commit[0] == '<' else behind
-    ahead  = u' ↑' if commit[0] == '>' else ahead
+    behind = u'↓' if commit[0] == '<' else behind
+    ahead  = u'↑' if commit[0] == '>' else ahead
 
-  return '%s%s' % (behind, ahead) if commits else ' ='
+  return '%s%s' % (behind, ahead) if commits else '='
 
 def _stash(repo):
   return '' if _cmd_output(repo, ['git', 'rev-parse', '--verify', 'refs/stash']).strip()  == '' else '$'
