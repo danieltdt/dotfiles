@@ -6,6 +6,8 @@ source ~/.vim/vimrc
 
 " code smell for ruby
 Bundle 'rainerborene/vim-reek'
+let g:reek_always_show = 0
+
 " POWER ALL THE LINE!
 set rtp+=/home/daniel/workspace/powerline/powerline/bindings/vim
 set laststatus=2 " Always display the statusline in all windows
