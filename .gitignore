@@ -1,11 +1,15 @@
+# python files
+*.py[cod]
+
+# vim files
 *.swp
 *.swo
-.rvmrc
-vendor/ruby
-vendor/bundle
-.bundle
-.bundle/**/*
+
+# rbenv files
 .ruby-version
+
+# temp files (mainly created by gedit)
 *~
-spec/support/firefox_executable.rb
-tmux.sh
+
+# app specific tmux init script
+/tmux.sh
