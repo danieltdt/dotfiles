@@ -48,5 +48,10 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#252525 ctermbg=0
 " Use system clipboard
 set clipboard=unnamedplus
 
+" map paste mode (fixes autoident on terminal)
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 " Ignore gems and log for fuzzy find
 set wildignore+=.bundle/gems/**,log/**
