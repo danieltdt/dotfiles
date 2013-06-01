@@ -136,6 +136,7 @@ export PATH=$HOME/.local/bin:$PATH                    # local executables
 export PATH=/opt/node/bin:$PATH                       # Nodejs
 export PATH=$HOME/Applications/sbt/bin:$PATH          # Scala build tool
 export PATH=$M2:$PATH                                 # Maven
+export PATH=$HOME/Applications/android-sdk-linux/platform-tools:$PATH  # Android
 
 #########################
 # Prompt
