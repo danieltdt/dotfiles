@@ -36,6 +36,10 @@ else
     endif
 endif
 
+" Some style for 80 column
+set textwidth=80
+set colorcolumn=+1
+
 " Fix tab for js and coffee
 autocmd FileType coffee set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
 autocmd FileType js set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
