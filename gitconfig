@@ -10,7 +10,6 @@
 [core]
 	excludesfile = /home/daniel/.gitignore
 [help]
-	format = web
 	autocorrect = -1
 [push]
 	default = current
