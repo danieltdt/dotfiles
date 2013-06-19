@@ -147,3 +147,6 @@ export PATH=$HOME/Applications/android-sdk-linux/platform-tools:$PATH  # Android
 ##########################
 # Set vi mode
 set -o vi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
