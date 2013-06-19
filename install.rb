@@ -50,7 +50,7 @@ end
 
 # Copy dotfiles
 Dir['*'].each do |file|
-  next if file =~ /TODO|install|dependencies|config|local/
+  next if file =~ /TODO|README|install|dependencies|config|local/
 
   source  = File.expand_path(file)
   destiny = File.join(Dir.home, ".#{file}")
