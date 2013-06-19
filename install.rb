@@ -58,15 +58,9 @@ Dir['*'].each do |file|
   create_link source, destiny
 end
 
-# Copy dotfiles
-Dir['*'].each do |file|
-  next if file =~ /TODO|install|dependencies/
-
-  source  = File.expand_path(file)
-  destiny = File.join(Dir.home, ".#{file}")
-
-  create_link source, destiny
-end
+# Install tmux-vim-select-pane (from @mislav)
+`wget https://raw.github.com/mislav/dotfiles/cd845d965db2f8c9faf07521fd1b6c62d42e98a5/bin/tmux-vim-select-pane -o ~/.local/bin/tmux-vim-select-pane`
+`chmod +x ~/.local/bin/tmux-vim-select-pane`
 
 # Install dependencies
 install_tmux = "cd dependencies/tmux; sh autogen.sh; ./configure && make; sudo make install"
