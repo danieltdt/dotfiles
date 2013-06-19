@@ -1,12 +1,12 @@
 [submodule "tmux"]
-	path = tmux
+	path = dependencies/tmux
 	url = git://git.code.sf.net/p/tmux/tmux-code
 [submodule "powerline"]
-	path = powerline
+	path = dependencies/powerline
 	url = git://github.com/Lokaltog/powerline
 [submodule "vimfiles"]
-	path = vimfiles
+	path = vim
 	url = git@github.com:danieltdt/vimfiles.git
 [submodule "libgit2"]
-	path = libgit2
+	path = dependencies/libgit2
 	url = git://github.com/libgit2/libgit2.git

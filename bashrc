@@ -127,11 +127,11 @@ export RUBY_FREE_MIN=200000
 #########################
 # Defining & redefining some env vars
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$HOME/workspace/dotfiles/python-libs
+export PYTHONPATH=$HOME/.local/python-libs
 export M2_HOME=$HOME/Applications/apache-maven-3.0.5  # Maven home
 export M2=$M2_HOME/bin                                # Maven bin
 export IRBRC=$HOME/.irbrc                             # irb config
-export CDPATH=$CDPATH:$HOME/workspace                 # workspace on cd
+export CDPATH=$CDPATH:$WORKSPACE                      # workspace on cd
 export PATH=$HOME/.local/bin:$PATH                    # local executables
 export PATH=/opt/node/bin:$PATH                       # Nodejs
 export PATH=$HOME/Applications/sbt/bin:$PATH          # Scala build tool
@@ -142,7 +142,7 @@ export PATH=$HOME/Applications/android-sdk-linux/platform-tools:$PATH  # Android
 # Prompt
 
 # POWER ALL THE LINE!
-. /home/daniel/workspace/powerline/powerline/bindings/bash/powerline.sh
+. $WORKSPACE/powerline/powerline/bindings/bash/powerline.sh
 
 ##########################
 # Set vi mode
