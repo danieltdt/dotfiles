@@ -59,7 +59,7 @@ Dir['*'].each do |file|
 end
 
 # Install tmux-vim-select-pane (from @mislav)
-`wget https://raw.github.com/mislav/dotfiles/cd845d965db2f8c9faf07521fd1b6c62d42e98a5/bin/tmux-vim-select-pane -o ~/.local/bin/tmux-vim-select-pane`
+`wget https://raw.github.com/mislav/dotfiles/cd845d965db2f8c9faf07521fd1b6c62d42e98a5/bin/tmux-vim-select-pane -qO ~/.local/bin/tmux-vim-select-pane`
 `chmod +x ~/.local/bin/tmux-vim-select-pane`
 
 # Install dependencies
