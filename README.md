@@ -24,4 +24,5 @@ To run `install.rb` you need [Ruby](https://github.com/sstephenson/rbenv).
 
     git clone git@github.com:danieltdt/dotfiles.git
     cd dotfiles
+    git submodule update --init --recursive
     ./install.rb
