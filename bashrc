@@ -101,6 +101,7 @@ fi
 [[ -s "$HOME/.bash_colors" ]] && . "$HOME/.bash_colors"
 
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 #########################
 # Enable rbenv shims and autocompletion
