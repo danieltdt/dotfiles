@@ -100,6 +100,8 @@ fi
 
 [[ -s "$HOME/.bash_colors" ]] && . "$HOME/.bash_colors"
 
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
+
 #########################
 # Enable rbenv shims and autocompletion
 export PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
@@ -133,7 +135,6 @@ export M2=$M2_HOME/bin                                # Maven bin
 export IRBRC=$HOME/.irbrc                             # irb config
 export CDPATH=$CDPATH:$WORKSPACE                      # workspace on cd
 export PATH=$HOME/.local/bin:$PATH                    # local executables
-export PATH=/opt/node/bin:$PATH                       # Nodejs
 export PATH=$HOME/Applications/sbt/bin:$PATH          # Scala build tool
 export PATH=$M2:$PATH                                 # Maven
 export PATH=$HOME/Applications/android-sdk-linux/platform-tools:$PATH  # Android
