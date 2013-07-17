@@ -15,15 +15,15 @@
 	},
 	"ext": {
 		"shell": {
-			"colorscheme": "the_saints",
+			"colorscheme": "solarized",
 			"theme": "custom"
 		},
 		"tmux": {
-			"colorscheme": "default",
+			"colorscheme": "solarized",
 			"theme": "custom"
 		},
 		"vim": {
-			"colorscheme": "default",
+			"colorscheme": "solarized",
 			"theme": "default",
 			"local_themes": {
 				"cmdwin": "cmdwin",
