@@ -1,6 +1,7 @@
 #! /bin/bash
 
 alias b="bundle exec"
+alias n='npm_exec'
 alias gvim="gvim 2> /dev/null"
 alias tmux="TERM=screen-256color-bce tmux -2"
 alias tm="source ./tmux.sh"
