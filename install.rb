@@ -69,9 +69,6 @@ run install_tmux
 install_pip = "sudo apt-get install python-dev python-pip"
 run install_pip
 
-install_libgit2 = "cd dependencies/libgit2; mkdir build && cd build; cmake ..; cmake --build .; cd ..; rm -rf build"
-run install_libgit2
-
 install_pygit2 = "sudo pip install --upgrade pygit2"
 run install_pygit2
 
