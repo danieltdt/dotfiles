@@ -142,6 +142,9 @@ export PATH=$HOME/Applications/android-sdk-linux/platform-tools:$PATH  # Android
 
 #########################
 # Prompt
+if [ -f ~/.bash_prompt ]; then
+    . ~/.bash_prompt
+fi
 
 ##########################
 # Set vi mode

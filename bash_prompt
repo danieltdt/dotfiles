@@ -1,0 +1,8 @@
+USER_AT_HOST="\u@\h"
+if [[ $UID -ne 0 ]]; then
+  WORKING_DIR="${BRIGHT_GREEN}\w${RESET}"
+else
+  WORKING_DIR="${BRIGHT_RED}\w${RESET}"
+fi
+RBENV_GIT='($(__rbenv_ps1)) $(__git_ps1 "[ %s ]")'
+export PS1="${USER_AT_HOST}:${WORKING_DIR} ${RBENV_GIT}\n$ "
