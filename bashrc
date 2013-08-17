@@ -98,8 +98,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-[[ -s "$HOME/.bash_colors" ]] && . "$HOME/.bash_colors"
-
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
@@ -114,6 +112,13 @@ __rbenv_ps1 ()
   rbenv_ruby_version=`rbenv version | sed -e 's/ .*//'`
   printf $rbenv_ruby_version
 }
+
+# nvm prompt
+__nvm_ps1 ()
+{
+  echo `nvm_ls 'current'`
+}
+
 
 #########################
 # Load sensitive env vars (like application-specific password for google

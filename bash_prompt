@@ -1,8 +1,35 @@
-USER_AT_HOST="\u@\h"
-if [[ $UID -ne 0 ]]; then
-  WORKING_DIR="${BRIGHT_GREEN}\w${RESET}"
-else
-  WORKING_DIR="${BRIGHT_RED}\w${RESET}"
-fi
-RBENV_GIT='($(__rbenv_ps1)) $(__git_ps1 "[ %s ]")'
-export PS1="${USER_AT_HOST}:${WORKING_DIR} ${RBENV_GIT}\n$ "
+# check http://misc.flogisoft.com/bash/tip_colors_and_formatting#colors1 for
+# color numbers.
+
+function print_pre_prompt {
+    local normal=$(tput sgr0)
+    local name_at_host=$(tput setaf 240)
+    local workspace_dir=$(tput bold; tput setaf 77)
+    local other_dir=$(tput bold; tput setaf 260)
+    local ruby=$(tput setaf 9)
+    local node=$(tput setaf 2)
+    local color=''
+    local dir=$PWD
+
+    if [[ $PWD == $WORKSPACE* ]] ; then
+      color=$workspace_dir
+      dir=${PWD/$WORKSPACE/ }
+    else
+      color=$other_dir
+      dir=${PWD/$HOME/\~}
+    fi
+
+    local left="${name_at_host}$USER@$HOSTNAME${normal} ${color}$dir${normal} $(__git_ps1 ' %s')"
+    local right=" (${ruby}◆ $(__rbenv_ps1)${normal}) (${node}⬢ $(__nvm_ps1)${normal})"
+    local spacing_correction=-50 # correction for multi-byte chars
+
+    printf "%s%$(($COLUMNS-${#left}-$spacing_correction))s\n" "$left" "$right"
+}
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM=1
+
+PROMPT_COMMAND=print_pre_prompt
+PS1='$ '
