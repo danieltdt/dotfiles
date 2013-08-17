@@ -14,10 +14,6 @@
 		"spaces": 1
 	},
 	"ext": {
-		"shell": {
-			"colorscheme": "solarized",
-			"theme": "custom"
-		},
 		"tmux": {
 			"colorscheme": "solarized",
 			"theme": "custom"

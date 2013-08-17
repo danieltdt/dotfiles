@@ -7,6 +7,3 @@
 [submodule "vimfiles"]
 	path = vim
 	url = git@github.com:danieltdt/vimfiles.git
-[submodule "libgit2"]
-	path = dependencies/libgit2
-	url = git://github.com/libgit2/libgit2.git

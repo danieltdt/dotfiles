@@ -143,9 +143,6 @@ export PATH=$HOME/Applications/android-sdk-linux/platform-tools:$PATH  # Android
 #########################
 # Prompt
 
-# POWER ALL THE LINE!
-. $WORKSPACE/powerline/powerline/bindings/bash/powerline.sh
-
 ##########################
 # Set vi mode
 set -o vi
