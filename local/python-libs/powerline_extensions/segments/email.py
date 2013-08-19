@@ -7,7 +7,7 @@ from collections import namedtuple
 _IMAPKey = namedtuple('Key', 'username password server port folder')
 class SecureEmailIMAPSegment(EmailIMAPSegment):
 	@staticmethod
-	def key(username = '', password = '', server='imap.gmail.com', port=993, folder='INBOX', **kwargs):
+	def key(username, password, server='imap.gmail.com', port=993, folder='INBOX'):
           username = os.getenv("PL_EMAIL_SEGMENT_USERNAME", '')
           password = os.getenv("PL_EMAIL_SEGMENT_PASSWORD", '')
 
