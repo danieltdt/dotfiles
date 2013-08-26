@@ -21,7 +21,7 @@ function print_pre_prompt {
 
     local left="${name_at_host}$USER@$HOSTNAME${normal} ${color}$dir${normal} $(__git_ps1 ' %s')"
     local right=" (${ruby}◆ $(__rbenv_ps1)${normal}) (${node}⬢ $(__nvm_ps1)${normal})"
-    local spacing_correction=-50 # correction for multi-byte chars
+    local spacing_correction=-60 # correction
 
     printf "%s%$(($COLUMNS-${#left}-$spacing_correction))s\n" "$left" "$right"
 }
