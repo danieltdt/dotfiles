@@ -132,6 +132,7 @@ export RUBY_FREE_MIN=200000
 
 #########################
 # Defining & redefining some env vars
+export GREP_OPTIONS='--exclude-dir=node_modules --exclude-dir=.bundle --exclude-dir=.git --exclude-dir=coverage -rn'
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$HOME/.local/python-libs
 export M2_HOME=$HOME/Applications/apache-maven-3.0.5  # Maven home
