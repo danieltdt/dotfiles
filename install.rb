@@ -50,7 +50,7 @@ end
 
 # Copy dotfiles
 Dir['*'].each do |file|
-  next if file =~ /TODO|README|install|dependencies|config|local/
+  next if file =~ /TODO|README|install|dependencies|^config$|local/
 
   source  = File.expand_path(file)
   destiny = File.join(Dir.home, ".#{file}")
@@ -63,14 +63,8 @@ end
 `chmod +x ~/.local/bin/tmux-vim-select-pane`
 
 # Install dependencies
-install_tmux = "cd dependencies/tmux; sh autogen.sh; ./configure && make; sudo make install"
-run install_tmux
-
 install_pip = "sudo apt-get install python-dev python-pip"
 run install_pip
-
-install_pygit2 = "sudo pip install --upgrade pygit2"
-run install_pygit2
 
 install_powerline = "pip install --upgrade --user -e #{workspace}/powerline"
 run install_powerline
