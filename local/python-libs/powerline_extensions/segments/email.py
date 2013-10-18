@@ -7,11 +7,11 @@ from collections import namedtuple
 _IMAPKey = namedtuple('Key', 'username password server port folder')
 class SecureEmailIMAPSegment(EmailIMAPSegment):
 	@staticmethod
-	def key(username, password, server='imap.gmail.com', port=993, folder='INBOX'):
-          username = os.getenv("PL_EMAIL_SEGMENT_USERNAME", '')
-          password = os.getenv("PL_EMAIL_SEGMENT_PASSWORD", '')
+	def key(server='imap.gmail.com', port=993, folder='INBOX', **kwargs):
+		username = os.getenv("PL_EMAIL_SEGMENT_USERNAME", '')
+		password = os.getenv("PL_EMAIL_SEGMENT_PASSWORD", '')
 
-          return _IMAPKey(username, password, server, port, folder)
+		return _IMAPKey(username, password, server, port, folder)
 
 secure_email_imap_alert = with_docstring(SecureEmailIMAPSegment(),
 '''Return unread e-mail count for IMAP servers.
