@@ -13,3 +13,6 @@
 
 # app specific tmux init script
 /tmux.sh
+
+# custom coffeelint
+/.coffeelint.json
