@@ -143,6 +143,7 @@ export PATH=$HOME/.local/bin:$PATH                    # local executables
 export PATH=$HOME/Applications/sbt/bin:$PATH          # Scala build tool
 export PATH=$M2:$PATH                                 # Maven
 export PATH=$HOME/Applications/android-sdk-linux/platform-tools:$PATH  # Android
+export PATH=$HOME/Applications/apache-jmeter-2.9/bin:$PATH             # JMeter
 
 #########################
 # Prompt
