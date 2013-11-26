@@ -19,7 +19,12 @@ function print_pre_prompt {
       dir=${PWD/$HOME/\~}
     fi
 
-    local left="${name_at_host}$USER@$HOSTNAME${normal} ${color}$dir${normal} $(__git_ps1 ' %s')"
+    local ssh_flag=''
+    if [ -n "$SSH_CLIENT" ] ; then
+      ssh_flag=' ssh'
+    fi
+
+    local left="${ssh_flag}${name_at_host}$USER@$HOSTNAME${normal} ${color}$dir${normal} $(__git_ps1 ' %s')"
     local right=" (${ruby}◆ $(__rbenv_ps1)${normal}) (${node}⬢ $(__nvm_ps1)${normal})"
     local spacing_correction=-60 # correction
 
