@@ -9,6 +9,7 @@
 	colete = blame
 [core]
 	excludesfile = /home/daniel/.gitignore
+	editor = vim
 [help]
 	autocorrect = -1
 [push]
