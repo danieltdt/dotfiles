@@ -102,12 +102,12 @@ fi
 #########################
 # Enable rbenv shims and autocompletion
 export PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
-eval "$(rbenv init -)"
+eval "$(rbenv init - 2> /dev/null)"
 
 # rbenv prompt (from https://gist.github.com/kyanny/1668822)
 __rbenv_ps1 ()
 {
-  rbenv_ruby_version=`rbenv version | sed -e 's/ .*//'`
+  rbenv_ruby_version=`rbenv version 2> /dev/null | sed -e 's/ .*//'`
   printf $rbenv_ruby_version
 }
 
