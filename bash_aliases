@@ -1,6 +1,7 @@
 #! /bin/bash
 
 alias b="bundle exec"
+alias ccat="pygmentize -O style=monokai -f console256 -g"
 alias n='npm_exec'
 alias gvim="gvim 2> /dev/null"
 alias tm="source ./tmux.sh"
