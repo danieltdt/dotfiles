@@ -14,14 +14,15 @@ Includes
 
 ## Requirements
 
-[rbenv](https://github.com/sstephenson/rbenv).
-[nvm](https://github.com/creationix/nvm).
-python2 + pip
-git (+ git-contrib)
+ [rbenv](https://github.com/sstephenson/rbenv)<br />
+ [nvm](https://github.com/creationix/nvm)<br />
+ python2 + pip<br />
+ git (+ git-contrib)
 
 
 ## Usage
 
+```sh
     git clone git@github.com:danieltdt/dotfiles.git
     cd dotfiles
     git submodule update --init --recursive
@@ -31,3 +32,4 @@ git (+ git-contrib)
 
     # Create symlinks
     ./install.rb
+```
