@@ -58,14 +58,6 @@ Dir['*'].each do |file|
   create_link source, destiny
 end
 
-# Install tmux-vim-select-pane (from @mislav)
-`wget https://raw.github.com/mislav/dotfiles/ea86d75e/bin/tmux-vim-select-pane -qO ~/.local/bin/tmux-vim-select-pane`
-`chmod +x ~/.local/bin/tmux-vim-select-pane`
-
 # Install dependencies
-install_pip = "sudo apt-get install python-dev python-pip"
-run install_pip
-
-install_powerline = "pip install --upgrade --user -e #{workspace}/powerline"
-run install_powerline
-
+puts "Install python and pip (sudo apt-get install python-dev python-pip)"
+puts "Install powerline as dev dependency (pip install --upgrade --user -e #{workspace}/powerline)"

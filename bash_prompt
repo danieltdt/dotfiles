@@ -14,7 +14,7 @@ function print_pre_prompt {
 
     if [[ $PWD == $WORKSPACE* ]] ; then
       color=$workspace_dir
-      dir=${PWD/$WORKSPACE/ }
+      dir=${PWD/$WORKSPACE/📂 }
     else
       color=$other_dir
       dir=${PWD/$HOME/\~}

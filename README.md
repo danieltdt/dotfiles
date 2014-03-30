@@ -9,20 +9,25 @@ Includes
   * git files
   * ruby files (bundler, rspec, gemrc, rdebug)
   * python files (actually, powerline extensions)
-  * tmux
-  * libgit2
-  * pygit2
-  * powerline on vim
-  * powerline on bash
-  * powerline on tmux
+  * powerline (for vim and tmux)
+
 
 ## Requirements
 
-To run `install.rb` you need [Ruby](https://github.com/sstephenson/rbenv).
+[rbenv](https://github.com/sstephenson/rbenv).
+[nvm](https://github.com/creationix/nvm).
+python2 + pip
+git (+ git-contrib)
+
 
 ## Usage
 
     git clone git@github.com:danieltdt/dotfiles.git
     cd dotfiles
     git submodule update --init --recursive
+
+    # Install required dependencies
+    # ...
+
+    # Create symlinks
     ./install.rb
