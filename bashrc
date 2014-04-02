@@ -51,6 +51,13 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
 ########################
 # Enable nvm
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
@@ -74,8 +81,8 @@ __nvm_ps1 ()
   echo `nvm_ls 'current'`
 }
 
-if [ ! $(have __git_ps1 2> /dev/null) ]; then
-  . /usr/share/git/git-prompt.sh
+if [ -f /usr/share/git/git-prompt.sh ]; then
+    . /usr/share/git/git-prompt.sh
 fi
 
 #########################
