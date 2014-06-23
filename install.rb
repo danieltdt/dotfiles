@@ -16,7 +16,7 @@ default_workspace = File.join(Dir.home, "workspace")
 puts "Enter your workspace folder (default: #{default_workspace})"
 workspace = gets.strip
 workspace = default_workspace if workspace.empty?
-`echo 'WORKSPACE=#{workspace}' >> ~/.env`
+`echo 'export WORKSPACE=#{workspace}' >> ~/.env`
 
 FileUtils.mkdir_p workspace
 Dir['dependencies/*'].each do |dependency|
