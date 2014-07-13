@@ -107,6 +107,7 @@ export M2_HOME=$HOME/Applications/apache-maven-3.0.5  # Maven home
 export M2=$M2_HOME/bin                                # Maven bin
 export IRBRC=$HOME/.irbrc                             # irb config
 export CDPATH=$CDPATH:$WORKSPACE                      # workspace on cd
+export PATH=$(gem environment gempath | ruby -e 'puts STDIN.read.chomp.split(":").compact.map {|p| p + "/bin"}.join(":")'):$PATH
 export PATH=$HOME/.local/bin:$PATH                    # local executables
 export PATH=$HOME/Applications/sbt/bin:$PATH          # Scala build tool
 export PATH=$M2:$PATH                                 # Maven
