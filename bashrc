@@ -99,6 +99,7 @@ fi
 
 #########################
 # Defining & redefining some env vars
+# export PULSE_LATENCY_MSEC=60 # Uncomment this line if skype sound is distorted
 export EDITOR='vim'
 export GREP_OPTIONS='--exclude-dir=node_modules --exclude-dir=.bundle --exclude-dir=.git --exclude-dir=coverage -rn'
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
