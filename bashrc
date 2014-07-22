@@ -105,10 +105,11 @@ export GREP_OPTIONS='--exclude-dir=node_modules --exclude-dir=.bundle --exclude-
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$HOME/.local/python-libs
 export M2_HOME=$HOME/Applications/apache-maven-3.0.5  # Maven home
+export GEM_HOME=$HOME/.gems                           # Local system's ruby gem home
 export M2=$M2_HOME/bin                                # Maven bin
 export IRBRC=$HOME/.irbrc                             # irb config
 export CDPATH=$CDPATH:$WORKSPACE                      # workspace on cd
-export PATH=$(gem environment gempath | ruby -e 'puts STDIN.read.chomp.split(":").compact.map {|p| p + "/bin"}.join(":")'):$PATH
+export PATH=$GEM_HOME/bin:$PATH                       # local gem executables
 export PATH=$HOME/.local/bin:$PATH                    # local executables
 export PATH=$HOME/Applications/sbt/bin:$PATH          # Scala build tool
 export PATH=$M2:$PATH                                 # Maven
