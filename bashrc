@@ -24,6 +24,7 @@ shopt -s checkwinsize
 
 # set a fancy prompt
 export TERM='xterm-256color'
+export COLORTERM='gnome-terminal'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
