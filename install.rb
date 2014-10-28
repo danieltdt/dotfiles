@@ -63,4 +63,4 @@ end
 
 # Install dependencies
 puts "Install python and pip (sudo apt-get install python-dev python-pip)"
-puts %Q{Install powerline as dev dependency (pip install --upgrade --target "$HOME/.local/python-libs" #{workspace}/powerline)}
+puts %Q{Install powerline as dev dependency (pip install --user -e #{workspace}/powerline)}
