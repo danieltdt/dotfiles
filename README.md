@@ -14,10 +14,11 @@ Includes
 
 ## Requirements
 
- [rbenv](https://github.com/sstephenson/rbenv)<br />
- [nvm](https://github.com/creationix/nvm)<br />
- python2 + pip<br />
- git (+ git-contrib)
+  * [rbenv](https://github.com/sstephenson/rbenv)
+  * [nvm](https://github.com/creationix/nvm)
+  * [tpm](https://github.com/tmux-plugins/tpm)
+  * python2 + pip
+  * git (+ git-contrib)
 
 
 ## Usage
@@ -28,7 +29,8 @@ Includes
     git submodule update --init --recursive
 
     # Install required dependencies
-    # ...
+    # # go to github and install: nvm, rbenv and tpm
+    # sudo pacman -Ss python2 git
 
     # Create symlinks
     ./install.rb
