@@ -110,7 +110,7 @@ export EDITOR='vim'
 export GREP_OPTIONS='--exclude-dir=node_modules --exclude-dir=.bundle --exclude-dir=.git --exclude-dir=coverage -rn'
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$HOME/.local/python-libs
-export M2_HOME=$HOME/Applications/apache-maven-3.0.5  # Maven home
+export M2_HOME=/opt/maven                             # Maven home
 export GEM_HOME=$HOME/.gems                           # Local system's ruby gem home
 export M2=$M2_HOME/bin                                # Maven bin
 export IRBRC=$HOME/.irbrc                             # irb config
