@@ -74,6 +74,11 @@ fi
 export PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
 eval "$(rbenv init - 2> /dev/null)"
 
+
+#########################
+# Enable resty functions
+[[ -f "$HOME/workspace/resty/resty" ]] && . "$HOME/workspace/resty/resty"
+
 # rbenv prompt (from https://gist.github.com/kyanny/1668822)
 __rbenv_ps1 ()
 {
@@ -117,6 +122,7 @@ export PATH=$M2:$PATH                                 # Maven
 export PATH="/usr/local/heroku/bin:$PATH"             # Heroku Toolbelt
 export PATH=$HOME/Applications/android-sdk-linux/platform-tools:$PATH  # Android
 export PATH=$HOME/Applications/apache-jmeter/bin:$PATH                 # JMeter
+[[ ! -z $WORKSPACE ]] && export PATH=$WORKSPACE/resty:$PATH            # Resty helpers
 
 #########################
 # Prompt
