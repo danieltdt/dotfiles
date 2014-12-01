@@ -26,23 +26,6 @@ shopt -s checkwinsize
 export TERM='xterm-256color'
 export COLORTERM='gnome-terminal'
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -107,7 +90,6 @@ fi
 # Defining & redefining some env vars
 # export PULSE_LATENCY_MSEC=60 # Uncomment this line if skype sound is distorted
 export EDITOR='vim'
-export GREP_OPTIONS='--exclude-dir=node_modules --exclude-dir=.bundle --exclude-dir=.git --exclude-dir=coverage -rn'
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$HOME/.local/python-libs
 export M2_HOME=/opt/maven                             # Maven home
