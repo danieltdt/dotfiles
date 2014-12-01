@@ -15,7 +15,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    options='--exclude-dir=node_modules --exclude-dir=.bundle --exclude-dir=.git --exclude-dir=coverage -rn'
+    options='--exclude-dir=node_modules --exclude-dir=.bundle --exclude-dir=.git --exclude-dir=coverage'
     alias grep="grep --color=auto $options"
     alias fgrep="fgrep --color=auto $options"
     alias egrep="egrep --color=auto $options"
