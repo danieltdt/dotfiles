@@ -1,3 +1,6 @@
+# direnv files
+.envrc
+
 # python files
 *.py[cod]
 

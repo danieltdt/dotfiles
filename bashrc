@@ -19,6 +19,10 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+##########################
+# Set vi mode
+set -o vi
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -113,5 +117,5 @@ if [ -f ~/.bash_prompt ]; then
 fi
 
 ##########################
-# Set vi mode
-set -o vi
+# load direnv
+eval "$(direnv hook bash)"
