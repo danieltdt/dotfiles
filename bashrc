@@ -57,6 +57,12 @@ fi
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
+# Homebrew way
+if [ -f `brew --prefix nvm`/nvm.sh ]; then
+  export NVM_DIR=~/.nvm
+  . $(brew --prefix nvm)/nvm.sh
+fi
+
 #########################
 # Enable rbenv shims and autocompletion
 export PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
