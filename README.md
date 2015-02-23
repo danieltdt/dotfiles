@@ -17,6 +17,7 @@ Includes
   * [rbenv](https://github.com/sstephenson/rbenv)
   * [nvm](https://github.com/creationix/nvm)
   * [tpm](https://github.com/tmux-plugins/tpm)
+  * direnv
   * python2 + pip
   * git (+ git-contrib)
 
@@ -29,9 +30,11 @@ Includes
     git submodule update --init --recursive
 
     # Install required dependencies
-    # # go to github and install: nvm, rbenv and tpm
-    # sudo pacman -Ss python2 git
+    # - $ sudo pacman -S python2 git tmux
+    #   or
+    # - $ brew install bash-completion git python rbenv tmux ruby-build
+    # - go to github and install: nvm, rbenv and tpm
 
     # Create symlinks
-    ./install.rb
+    rbenv exec ruby install.rb
 ```
