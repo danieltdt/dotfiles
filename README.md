@@ -33,6 +33,7 @@ Includes
     # - $ sudo pacman -S python2 git tmux
     #   or
     # - $ brew install bash-completion git python rbenv tmux ruby-build
+    # - $ brew install macvim --env-std --override-system-vim
     # - go to github and install: nvm, rbenv and tpm
 
     # Create symlinks
