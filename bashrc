@@ -30,6 +30,12 @@ set -o vi
 export TERM='xterm-256color'
 export COLORTERM='gnome-terminal'
 
+# Fix lang for mac os
+if [ "$(uname)" == "Darwin" ]; then
+  export LC_ALL=en_US.UTF-8
+  export LANG=en_US.UTF-8
+fi
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
