@@ -30,8 +30,12 @@ set -o vi
 export TERM='xterm-256color'
 export COLORTERM='gnome-terminal'
 
-# Fix lang for mac os
+# Fixes for mac os
 if [ "$(uname)" == "Darwin" ]; then
+  # enable colors on terminal
+  export CLICOLOR=1
+
+  # fix python LANG
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
 fi
