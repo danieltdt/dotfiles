@@ -120,7 +120,7 @@ fi
 # export PULSE_LATENCY_MSEC=60 # Uncomment this line if skype sound is distorted
 export EDITOR='vim'
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$HOME/.local/python-libs
+export PYTHONPATH=$HOME/.local/python-libs:/usr/lib/python3.4/site-packages
 export M2_HOME=/opt/maven                             # Maven home
 export GEM_HOME=$HOME/.gems                           # Local system's ruby gem home
 export M2=$M2_HOME/bin                                # Maven bin
