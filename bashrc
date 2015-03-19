@@ -58,19 +58,27 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
+if [ "$(uname)" == "Darwin" ]; then
+  if [ -f `brew --prefix`/etc/bash_completion ]; then
+      . `brew --prefix`/etc/bash_completion
+  fi
 fi
 
 ########################
 # Enable nvm
-[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
-[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+if [[ -s /usr/share/nvm/init-nvm.sh ]]; then
+  source /usr/share/nvm/init-nvm.sh
+else
+  [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
+  [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+fi
 
 # Homebrew way
-if [ -f `brew --prefix nvm`/nvm.sh ]; then
-  export NVM_DIR=~/.nvm
-  . $(brew --prefix nvm)/nvm.sh
+if [ "$(uname)" == "Darwin" ]; then
+  if [ -f `brew --prefix nvm`/nvm.sh ]; then
+    export NVM_DIR=~/.nvm
+    . $(brew --prefix nvm)/nvm.sh
+  fi
 fi
 
 #########################
