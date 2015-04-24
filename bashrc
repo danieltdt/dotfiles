@@ -27,7 +27,7 @@ set -o vi
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set a fancy prompt
-export TERM='xterm-256color'
+export TERM='screen-256color'
 export COLORTERM='gnome-terminal'
 
 # Fixes for mac os
