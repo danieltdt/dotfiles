@@ -10,7 +10,7 @@ function print_pre_prompt {
     local node=$(tput setaf 2)
     local color=''
     local dir=$PWD
-    local spacing_correction=-60 # correction for left & right
+    local spacing_correction=-53 # correction for left & right
 
     if [[ $PWD == $WORKSPACE* ]] ; then
       color=$workspace_dir
