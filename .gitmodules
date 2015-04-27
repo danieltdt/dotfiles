@@ -1,9 +1,6 @@
 [submodule "powerline"]
 	path = dependencies/powerline
 	url = https://github.com/Lokaltog/powerline.git
-[submodule "vimfiles"]
-	path = vim
-	url = https://github.com/danieltdt/vimfiles.git
 [submodule "dependencies/resty"]
 	path = dependencies/resty
 	url = https://github.com/micha/resty.git
