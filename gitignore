@@ -13,6 +13,7 @@
 
 # rbenv files
 .ruby-version
+.ruby-gemset
 
 # temp files (mainly created by gedit)
 *~
