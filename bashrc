@@ -86,6 +86,9 @@ fi
 export PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
 eval "$(rbenv init - 2> /dev/null)"
 
+#########################
+# Enable jenv shims and autocompletion
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 #########################
 # Enable resty functions
