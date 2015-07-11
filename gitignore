@@ -8,6 +8,9 @@
 *.swp
 *.swo
 
+# OSX files
+.DS_Store
+
 # rbenv files
 .ruby-version
 
