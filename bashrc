@@ -4,6 +4,9 @@
 # If not running interactively, don't do anything (arch way)
 [[ $- != *i* ]] && return
 
+# load system-wide conf
+test -r /etc/profile && . /etc/profile
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
