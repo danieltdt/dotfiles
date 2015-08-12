@@ -3,6 +3,10 @@
 function scd () {
   cd ${PWD/$1/$2}
 }
+
+function npm_exec () {
+  ./node_modules/.bin/$@
+}
 ###-begin-npm-completion-###
 #
 # npm command completion script
