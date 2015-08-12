@@ -91,7 +91,7 @@ eval "$(rbenv init - 2> /dev/null)"
 
 #########################
 # Enable jenv shims and autocompletion
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+if which jenv > /dev/null 2>&1; then eval "$(jenv init -)"; fi
 
 #########################
 # Enable resty functions
