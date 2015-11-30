@@ -15,6 +15,9 @@
 .ruby-version
 .ruby-gemset
 
+# docker compose files
+/docker-compose.yml
+
 # temp files (mainly created by gedit)
 *~
 
