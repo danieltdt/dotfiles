@@ -135,7 +135,6 @@ export PATH=$HOME/.local/bin:$PATH                    # local executables
 export PATH=$HOME/Applications/sbt/bin:$PATH          # Scala build tool
 export PATH=$M2:$PATH                                 # Maven
 export PATH="/usr/local/heroku/bin:$PATH"             # Heroku Toolbelt
-export PATH="$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH"       # Ruby
 export PATH=$HOME/Applications/android-sdk-linux/platform-tools:$PATH  # Android
 export PATH=$HOME/Applications/apache-jmeter/bin:$PATH                 # JMeter
 [[ ! -z $WORKSPACE ]] && export PATH=$WORKSPACE/resty:$PATH            # Resty helpers
