@@ -10,6 +10,7 @@
         tree = log --graph --pretty=oneline --decorate=short --abbrev-commit
         #changelog = "!f() { git log --no-merges --pretty='format:%an - %s' $1 | sed 's/.\\+ - \\(.*\\)/\\1/' | GREP_OPTIONS='' \\egrep -v '[skip changelog]' -i | awk '!_[$0]++'; }; f"
         changelog = "!f() { git log --no-merges --pretty='format:%an - %s' $1 | sed 's/.\\+ - \\(.*\\)/\\1/' | GREP_OPTIONS='' \\grep -v '\\[skip changelog\\]'; }; f"
+        ignored = !git ls-files -v | grep "^[[:lower:]]"
 [core]
 	excludesfile = /home/daniel/.gitignore
 	editor = vim
