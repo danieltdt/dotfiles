@@ -71,18 +71,17 @@ fi
 # Enable nvm
 if [[ -s /usr/share/nvm/init-nvm.sh ]]; then
   source /usr/share/nvm/init-nvm.sh
+# Homebrew way
+elif [ "$(uname)" == "Darwin" ]; then
+  if [ -f `brew --prefix nvm`/nvm.sh ]; then
+    export NVM_DIR=~/.nvm
+    . $(brew --prefix nvm)/nvm.sh
+  fi
 else
   [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
   [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 fi
 
-# Homebrew way
-if [ "$(uname)" == "Darwin" ]; then
-  if [ -f `brew --prefix nvm`/nvm.sh ]; then
-    export NVM_DIR=~/.nvm
-    . $(brew --prefix nvm)/nvm.sh
-  fi
-fi
 
 #########################
 # Enable rbenv shims and autocompletion
