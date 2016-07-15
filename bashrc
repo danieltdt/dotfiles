@@ -147,3 +147,9 @@ fi
 ##########################
 # load direnv
 eval "$(direnv hook bash)"
+
+##########################
+# load m-cli (github.com/rgcr/m-cli)
+if [ -f /usr/local/m-cli/m ]; then
+  export PATH=$PATH:/usr/local/m-cli
+fi
