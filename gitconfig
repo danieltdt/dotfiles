@@ -1,6 +1,7 @@
 [user]
 	name = Daniel Teixeira
 	email = daniel.t.dt@gmail.com
+	signingkey = E10293A0317A0EFA
 [alias]
 	st = status
 	co = checkout
@@ -25,3 +26,5 @@
 [heroku]
 	account = personal
 
+[commit]
+	gpgsign = true
