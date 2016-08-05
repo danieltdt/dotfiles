@@ -61,6 +61,22 @@ end
 # Add config env vars
 #export SSH_AUTH_SOCK="/run/user/$(id -u $(whoami))/keyring/ssh"
 
-# Install dependencies
-puts "Install python and pip (sudo apt-get install python-dev python-pip)"
-puts %Q{Install powerline as dev dependency (pip install --user -e #{workspace}/powerline)}
+puts <<~POSTINSTALL
+Install powerline
+
+    # for ubuntu
+    sudo apt install python3-powerline
+
+    # for archlinux (from AUR)
+    # download it
+    curl https://aur.archlinux.org/cgit/aur.git/snapshot/python-powerline-git.tar.gz | tar xz
+    # or with cower
+    # cower -d python-powerline-git
+    cd python-powerline-git
+    makepkg -sir
+
+Add my public key to keyring
+
+    gpg --keyserver hkp://keyserver.cais.rnp.br --recv-keys E10293A0317A0EFA
+
+POSTINSTALL
