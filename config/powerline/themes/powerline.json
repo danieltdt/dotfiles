@@ -1,0 +1,15 @@
+{
+  "segment_data": {
+    "time": {
+      "before": ""
+    },
+    "powerline.segments.common.net.hostname": {
+      "before": "@"
+    },
+    "powerline.segments.common.bat.battery": {
+      "args": {
+        "online": "<->"
+      }
+    }
+  }
+}
