@@ -26,5 +26,6 @@ alias egrep="egrep $grep_options"
 alias ll='ls -alFG'
 alias la='ls -AG'
 alias l='ls -CFG'
+alias mvn='docker run -it --rm --name docker-maven -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:alpine mvn'
 
 alias psgrep='ps aux | grep -i'
