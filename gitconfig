@@ -1,7 +1,7 @@
 [user]
 	name = Daniel Teixeira
 	email = daniel.t.dt@gmail.com
-	signingkey = E10293A0317A0EFA
+	signingkey = 1448867AF659B99A
 [alias]
 	st = status
 	co = checkout
@@ -14,7 +14,7 @@
         ignored = !git ls-files -v | grep "^[[:lower:]]"
 [core]
 	excludesfile = /home/daniel/.gitignore
-	editor = vim
+	editor = nvim
 [help]
 	autocorrect = -1
 [push]
