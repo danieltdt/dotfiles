@@ -1,6 +1,9 @@
 ---
+BUNDLE_PATH: ".bundle/gems"
 BUNDLE_DISABLE_SHARED_GEMS: "true"
 BUNDLE_BUILD__LIBV8: "--with-system-v8"
 BUNDLE_JOBS: "8"
 BUNDLE_BUILD__NOKOGIRI: "--use-system-libraries"
 BUNDLE_BUILD__PUMA: "--with-cppflags=-I/usr/include/openssl-1.0"
+BUNDLE_GEM__TEST: "minitest"
+BUNDLE_GEM__COC: "true"
