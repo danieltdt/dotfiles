@@ -89,6 +89,14 @@ export PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
 eval "$(rbenv init - 2> /dev/null)"
 
 #########################
+# Enable pyenv shims and autocompletion
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+#########################
 # Enable jenv shims and autocompletion
 if which jenv > /dev/null 2>&1; then eval "$(jenv init -)"; fi
 
