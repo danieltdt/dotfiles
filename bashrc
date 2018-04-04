@@ -129,6 +129,7 @@ export PYTHONPATH=$HOME/.local/python-libs:/usr/lib/python3.4/site-packages
 export M2_HOME=/opt/maven                             # Maven home
 export M2=$M2_HOME/bin                                # Maven bin
 export IRBRC=$HOME/.irbrc                             # irb config
+export DATOMIC_INSTALL_DIR=~/.local/datomic-free-0.9.5697
 export CDPATH=$CDPATH:$WORKSPACE                      # workspace on cd
 export PATH=$HOME/.local/bin:$PATH                    # local executables
 export PATH=$HOME/Applications/sbt/bin:$PATH          # Scala build tool
