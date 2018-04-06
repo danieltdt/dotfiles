@@ -4,6 +4,3 @@
 [submodule "dependencies/resty"]
 	path = dependencies/resty
 	url = https://github.com/micha/resty.git
-[submodule "vim"]
-	path = vim
-	url = http://github.com/danieltdt/vimfiles

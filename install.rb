@@ -11,6 +11,9 @@ def create_link(source, destiny)
   run "ln -nsf #{source} #{destiny}"
 end
 
+# install vim-plug
+run "curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+
 # Link dependencies to workspace
 default_workspace = File.join(Dir.home, "workspace")
 puts "Enter your workspace folder (default: #{default_workspace})"
@@ -50,7 +53,7 @@ end
 
 # Copy dotfiles
 Dir['*'].each do |file|
-  next if file =~ /TODO|README|install|dependencies|^config$|local/
+  next if file =~ /^(?:TODO|README|install|dependencies|config|local)$/
 
   source  = File.expand_path(file)
   destiny = File.join(Dir.home, ".#{file}")
