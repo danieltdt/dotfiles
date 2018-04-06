@@ -15,7 +15,7 @@ Plug 'Raimondi/delimitMate'            " delimiter (quotes, parens, etc) complet
 Plug 'mattn/emmet-vim'                 " expanding abbreviations
 
 " Syntax
-Plug 'scrooloose/syntastic'            " syntax checking
+Plug 'w0rp/ale'                        " async lint engine
 
 " Git
 Plug 'tpope/vim-fugitive'              " awesome git wrapper
@@ -44,7 +44,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'guileen/vim-node-dict'
 
 " Others
-Plug 'w0rp/ale'                        " async lint engine
 Plug 'moll/vim-node'                   " node.js tools
 Plug 'tpope/vim-rails'                 " rails tools
 Plug 'tpope/vim-classpath'             " java classpath support
@@ -61,3 +60,4 @@ Plug 'clojure-vim/async-clj-omni'      " clojure support
 Plug 'roxma/ncm-rct-complete'          " ruby support
 call plug#end()
 
+source ~/.vimrc
