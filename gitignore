@@ -15,6 +15,9 @@
 .ruby-version
 .ruby-gemset
 
+# pyenv
+.python-version
+
 # docker compose files
 /docker-compose.yml
 
