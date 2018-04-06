@@ -28,7 +28,7 @@ function print_pre_prompt {
     fi
 
     local left="${ssh_flag}${name_at_host}$USER@$HOSTNAME${normal} ${color}$dir${normal} $(__git_ps1 ' %s')"
-    local right="(${python}🐍 $(__pyenv_ps1 2> /dev/null)${normal}) (${ruby}◆ $(__rbenv_ps1 2> /dev/null)${normal}) (${node}⬢ $(__nvm_ps1 2> /dev/null)${normal})"
+    local right="(${python}🐍 $(__pyenv_ps1 2> /dev/null)${normal}) (${ruby}💎 $(__rbenv_ps1 2> /dev/null)${normal}) (${node}⬢ $(__nvm_ps1 2> /dev/null)${normal})"
 
     printf "%s%$(($COLUMNS-${#left}-$spacing_correction))s\n" "$left" "$right"
 }
