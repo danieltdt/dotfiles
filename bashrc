@@ -118,6 +118,12 @@ __nvm_ps1 ()
   echo `nvm_ls 'current'`
 }
 
+# pyenv prompt
+__pyenv_ps1 ()
+{
+  echo `pyenv version | cut -d' ' -f 1`
+}
+
 if [ -f /usr/share/git/git-prompt.sh ]; then
     . /usr/share/git/git-prompt.sh
 fi

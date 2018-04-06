@@ -8,9 +8,10 @@ function print_pre_prompt {
     local other_dir=$(tput bold; tput setaf 260)
     local ruby=$(tput setaf 9)
     local node=$(tput setaf 2)
+    local python=$(tput setaf 10)
     local color=''
     local dir=$PWD
-    local spacing_correction=-53 # correction for left & right
+    local spacing_correction=-64 # correction for left & right
 
     if [[ $PWD == $WORKSPACE* ]] ; then
       color=$workspace_dir
@@ -27,7 +28,7 @@ function print_pre_prompt {
     fi
 
     local left="${ssh_flag}${name_at_host}$USER@$HOSTNAME${normal} ${color}$dir${normal} $(__git_ps1 ' %s')"
-    local right=" (${ruby}◆ $(__rbenv_ps1 2> /dev/null)${normal}) (${node}⬢ $(__nvm_ps1 2> /dev/null)${normal})"
+    local right="(${python}🐍 $(__pyenv_ps1 2> /dev/null)${normal}) (${ruby}◆ $(__rbenv_ps1 2> /dev/null)${normal}) (${node}⬢ $(__nvm_ps1 2> /dev/null)${normal})"
 
     printf "%s%$(($COLUMNS-${#left}-$spacing_correction))s\n" "$left" "$right"
 }
