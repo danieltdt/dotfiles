@@ -1,4 +1,5 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
+set runtimepath^=~/.vim runtimepath+=~/.vim/after runtimepath+=/usr/share/vim/vimfiles
+
 let &packpath = &runtimepath
 
 " Load plugins
@@ -44,6 +45,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'guileen/vim-node-dict'
 
 " Others
+Plug 'junegunn/vim-easy-align'         " emacs like align
 Plug 'moll/vim-node'                   " node.js tools
 Plug 'tpope/vim-rails'                 " rails tools
 Plug 'tpope/vim-classpath'             " java classpath support
@@ -53,6 +55,7 @@ Plug 'wfleming/vim-codeclimate'        " codeclimate support
 Plug 'beloglazov/vim-online-thesaurus' " thesaurus online
 Plug 'clojure-vim/acid.nvim'           " async clojure interactive development
 Plug 'kovisoft/paredit', { 'for': ['closure'] } " paredit mode: sexprs
+Plug 'kien/rainbow_parentheses.vim'
 
 " Completion
 Plug 'roxma/nvim-completion-manager'   " completion framework for nvim

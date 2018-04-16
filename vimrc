@@ -3,10 +3,15 @@ set encoding=utf-8        " utf-8 by default
 
 " Plugins modification
 let g:airline_powerline_fonts = 1
-let g:syntastic_javascript_checkers = ['eslint', 'jslint']
 au BufRead,BufNewFile *.es6         set filetype=javascript
 au BufRead,BufNewFile *nginx/*.conf set filetype=nginx
-au FileType           javascript    set dictionary+=~/.vim/plugged/vim-node-dict/dict/node.dict
+au FileType           javascript    set dictionary+=~/.local/share/nvim/plugged/vim-node-dict/dict/node.dict
+
+" Load rainbow parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " UI
 set cmdheight=1           " Make the command area one lines high
@@ -53,6 +58,7 @@ set iskeyword+=$,@        " Add extra characters that are valid parts of variabl
 set pastetoggle=<F2>      " Set F2 as paste mode toggler
 set timeoutlen=350        " Time to wait for a command (after leader for example)
 set wildmenu              " Turn on Wild menu
+set wildmode=list,full    " show list, then complete with next full match
 
 " Text Format
 set autoindent            " Copy indent from current line when adding a new one
@@ -73,11 +79,17 @@ set wildignore+=.git,.svn
 set wildignore+=*.o,*.out,*.obj,*.pyc,*.rbc,*.class,*.jar,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
-set wildignore+=*/node_modules/*
+set wildignore+=*/node_modules/*,*/bower_components/*,__pycache__
 
 " Mappings
 " Use space key as leader
 let mapleader = "\<Space>"
+
+" Disable arrows
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 " map paste mode (fixes autoident on terminal)
 nnoremap <F2> :set invpaste paste?<CR>
@@ -92,9 +104,18 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 nnoremap <tab> :tabnext<cr>
 nnoremap <s-tab> :tabprevious<cr>
 
+nnoremap <C-p> :FZF<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " mimics ctrlp using vim fuzzy finder
-nnoremap <C-p> :e **/*
-nnoremap <C-v> :vsplit **/*
+nnoremap <C-o> :e **/*
+nnoremap <C-t> :tabnew **/*
+nnoremap <C-x> :vsplit **/*
 nnoremap <C-s> :split **/*
 
 " key mapping for moving lines up and down
