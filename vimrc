@@ -79,7 +79,7 @@ set wildignore+=.git,.svn
 set wildignore+=*.o,*.out,*.obj,*.pyc,*.rbc,*.class,*.jar,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
-set wildignore+=*/node_modules/*,*/bower_components/*,__pycache__
+set wildignore+=*/node_modules/*,*/bower_components/*,*/public/assets/*,__pycache__
 
 " Mappings
 " Use space key as leader
