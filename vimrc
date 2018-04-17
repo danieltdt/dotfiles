@@ -9,9 +9,9 @@ au FileType           javascript    set dictionary+=~/.local/share/nvim/plugged/
 
 " Load rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+au Syntax clojure RainbowParenthesesLoadRound
+au Syntax clojure RainbowParenthesesLoadSquare
+au Syntax clojure RainbowParenthesesLoadBraces
 
 " UI
 set cmdheight=1           " Make the command area one lines high
