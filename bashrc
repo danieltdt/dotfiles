@@ -82,6 +82,15 @@ else
   [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 fi
 
+#########################
+# fzf bindings
+if [[ -f /usr/share/fzf/key-bindings.bash ]]; then
+  . /usr/share/fzf/key-bindings.bash
+fi
+
+if [[ -f /usr/share/fzf/completion.bash ]]; then
+  . /usr/share/fzf/completion.bash
+fi
 
 #########################
 # Enable rbenv shims and autocompletion
