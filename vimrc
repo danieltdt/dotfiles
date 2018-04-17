@@ -58,7 +58,7 @@ set iskeyword+=$,@        " Add extra characters that are valid parts of variabl
 set pastetoggle=<F2>      " Set F2 as paste mode toggler
 set timeoutlen=350        " Time to wait for a command (after leader for example)
 set wildmenu              " Turn on Wild menu
-set wildmode=list,full    " show list, then complete with next full match
+set wildmode=list:full    " show list and complete with next full match
 
 " Text Format
 set autoindent            " Copy indent from current line when adding a new one
