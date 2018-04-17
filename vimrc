@@ -1,6 +1,11 @@
 set nocompatible          " be iMproved, required
 set encoding=utf-8        " utf-8 by default
 
+" config clojure
+let g:clojure_maxlines = 0
+let g:clojure_align_multiline_strings = 1
+let g:clojure_align_subforms = 0
+
 " Plugins modification
 let g:airline_powerline_fonts = 1
 au BufRead,BufNewFile *.es6         set filetype=javascript

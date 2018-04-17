@@ -53,8 +53,16 @@ Plug 'rainerborene/vim-reek'           " ruby code smell detection (requires `re
 Plug 'ngmy/vim-rubocop'                " rubocop support
 Plug 'wfleming/vim-codeclimate'        " codeclimate support
 Plug 'beloglazov/vim-online-thesaurus' " thesaurus online
-Plug 'clojure-vim/acid.nvim'           " async clojure interactive development
-Plug 'kovisoft/paredit', { 'for': ['closure'] } " paredit mode: sexprs
+Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugin'} " async clojure interactive development
+Plug 'hkupty/async-clj-highlight', { 'for': 'clojure', 'branch': 'acid-autocmd' } " clojure syntax highlight
+
+"Plug 'kovisoft/paredit', { 'for': ['closure'] } " paredit mode: sexprs
+" S-Expressions
+Plug 'guns/vim-sexp'
+let g:sexp_enable_insert_mode_mappings = 0
+
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
 Plug 'kien/rainbow_parentheses.vim'
 
 " Completion
