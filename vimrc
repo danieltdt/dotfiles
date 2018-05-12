@@ -4,7 +4,7 @@ set encoding=utf-8        " utf-8 by default
 " config clojure
 let g:clojure_maxlines = 0
 let g:clojure_align_multiline_strings = 1
-let g:clojure_align_subforms = 0
+let g:clojure_align_subforms = 1
 
 " Plugins modification
 let g:airline_powerline_fonts = 1
@@ -122,6 +122,9 @@ nnoremap <C-o> :e **/*
 nnoremap <C-t> :tabnew **/*
 nnoremap <C-x> :vsplit **/*
 nnoremap <C-s> :split **/*
+
+" duplicate buffer on new tab
+nnoremap <C-w>T :tab split<CR>
 
 " key mapping for moving lines up and down
 nnoremap <leader>mj :m .+1<cr>==

@@ -34,6 +34,8 @@ Plug 'chr4/nginx.vim'                  " nginx support
 Plug 'lepture/vim-velocity'            " Apache Velocity support
 Plug 'tmux-plugins/vim-tmux'           " vim plugin for tmux.conf
 Plug 'amadeus/vim-mjml'                " mjml support
+Plug 'clojure-vim/async-clj-highlight', {'for':
+        \ 'clojure'}                   " clojure support (using acid-vim)
 
 " Coloschemes
 Plug 'altercation/vim-colors-solarized'
@@ -55,22 +57,19 @@ Plug 'rainerborene/vim-reek'           " ruby code smell detection (requires `re
 Plug 'ngmy/vim-rubocop'                " rubocop support
 Plug 'wfleming/vim-codeclimate'        " codeclimate support
 Plug 'beloglazov/vim-online-thesaurus' " thesaurus online
-Plug 'clojure-vim/acid.nvim', { 'do': ':UpdateRemotePlugin'} " async clojure interactive development
-Plug 'hkupty/async-clj-highlight', { 'for': 'clojure', 'branch': 'acid-autocmd' } " clojure syntax highlight
 
-"Plug 'kovisoft/paredit', { 'for': ['closure'] } " paredit mode: sexprs
-" S-Expressions
-Plug 'guns/vim-sexp'
-let g:sexp_enable_insert_mode_mappings = 0
-
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-
-Plug 'kien/rainbow_parentheses.vim'
+" For Lisp dialects (emacs flavors)
+"Plug 'guns/vim-clojure-static'         " clojure runtime files
+Plug 'kien/rainbow_parentheses.vim'    " highlight parens
+Plug 'eraserhd/parinfer-rust', {'do':
+        \  'cargo build --manifest-path=cparinfer/Cargo.toml --release'}
+Plug 'clojure-vim/acid.nvim', {'do':
+        \ ':UpdateRemotePlugin'}       " async clojure interactive development
 
 " Completion
-Plug 'roxma/nvim-completion-manager'   " completion framework for nvim
-Plug 'clojure-vim/async-clj-omni'      " clojure support
-Plug 'roxma/ncm-rct-complete'          " ruby support
+Plug 'roxma/nvim-completion-manager'   " completion framework for nvim (ncm)
+Plug 'clojure-vim/async-clj-omni'      " clojure support for ncm
+Plug 'roxma/ncm-rct-complete'          " ruby support for ncm
 call plug#end()
 
 source ~/.vimrc
