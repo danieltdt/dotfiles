@@ -4,6 +4,7 @@ let &packpath = &runtimepath
 
 " Load plugins
 call plug#begin('~/.local/share/nvim/plugged')
+
 " Environment
 Plug 'bling/vim-airline'               " better status/tabline
 Plug 'scrooloose/nerdtree'             " file finder sidebar
@@ -32,6 +33,7 @@ Plug 'lervag/vimtex'                   " LaTeX support
 Plug 'chr4/nginx.vim'                  " nginx support
 Plug 'lepture/vim-velocity'            " Apache Velocity support
 Plug 'tmux-plugins/vim-tmux'           " vim plugin for tmux.conf
+Plug 'amadeus/vim-mjml'                " mjml support
 
 " Coloschemes
 Plug 'altercation/vim-colors-solarized'
