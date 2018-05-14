@@ -36,6 +36,8 @@ Plug 'tmux-plugins/vim-tmux'           " vim plugin for tmux.conf
 Plug 'amadeus/vim-mjml'                " mjml support
 Plug 'clojure-vim/async-clj-highlight', {'for':
         \ 'clojure'}                   " clojure support (using acid-vim)
+Plug 'slim-template/vim-slim'          " slim support
+Plug 'kchmck/vim-coffee-script'        " coffeescript
 
 " Coloschemes
 Plug 'altercation/vim-colors-solarized'
