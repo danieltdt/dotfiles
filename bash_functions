@@ -11,6 +11,7 @@ npm_exec () {
 mvn () {
   local working_dir="${MVN_WORKING_DIR:-${PWD}}"
   local dockerfile="${MVN_DOCKERFILE:-mvn.dockerfile}"
+  local run_opts="${MVN_RUN_OPTS:-}"
   local image=""
 
   if [[ ! -f "${working_dir}/${dockerfile}" ]]; then
@@ -20,9 +21,11 @@ mvn () {
     image="$(docker build "${working_dir}" -f ${dockerfile} -q | cut -d':' -f2)"
   fi
 
-  docker run -v "${working_dir}":/usr/src/mymaven \
+  docker run --rm -it \
+             -v "${working_dir}":/usr/src/mymaven \
              -v "$HOME/.m2":/root/.m2 \
-             --rm -it "$image" \
+             ${MVN_RUN_OPTS} \
+             "$image" \
              mvn "$@"
 }
 
