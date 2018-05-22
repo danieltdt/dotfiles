@@ -1,12 +1,31 @@
 #!/bin/bash
 
-function scd () {
+scd () {
   cd ${PWD/$1/$2}
 }
 
-function npm_exec () {
+npm_exec () {
   ./node_modules/.bin/$@
 }
+
+mvn () {
+  local working_dir="${MVN_WORKING_DIR:-${PWD}}"
+  local dockerfile="${MVN_DOCKERFILE:-mvn.dockerfile}"
+  local image=""
+
+  if [[ ! -f "${working_dir}/${dockerfile}" ]]; then
+    echo "${working_dir}/${dockerfile}: Dockerfile not found, using maven:alpine"
+    image="maven:alpine"
+  else
+    image="$(docker build "${working_dir}" -f ${dockerfile} -q | cut -d':' -f2)"
+  fi
+
+  docker run -v "${working_dir}":/usr/src/mymaven \
+             -v "$HOME/.m2":/root/.m2 \
+             --rm -it "$image" \
+             mvn "$@"
+}
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
