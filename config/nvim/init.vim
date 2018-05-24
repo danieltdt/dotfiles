@@ -64,7 +64,7 @@ Plug 'beloglazov/vim-online-thesaurus' " thesaurus online
 "Plug 'guns/vim-clojure-static'         " clojure runtime files
 Plug 'kien/rainbow_parentheses.vim'    " highlight parens
 Plug 'eraserhd/parinfer-rust', {'do':
-        \  'cargo build --manifest-path=cparinfer/Cargo.toml --release'}
+        \  'cargo build --release'}
 Plug 'clojure-vim/acid.nvim', {'do':
         \ ':UpdateRemotePlugin'}       " async clojure interactive development
 
