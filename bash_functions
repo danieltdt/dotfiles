@@ -18,6 +18,7 @@ mvn () {
     echo "${working_dir}/${dockerfile}: Dockerfile not found, using maven:alpine"
     image="maven:alpine"
   else
+    echo "${working_dir}/${dockerfile}: building..."
     image="$(docker build "${working_dir}" -f ${dockerfile} -q | cut -d':' -f2)"
   fi
 
