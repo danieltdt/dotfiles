@@ -1,24 +1,21 @@
 My dotfiles
 -----------
 
-My dotfiles for Ubuntu development environment.
+My dotfiles for linux development environment.
 
 Includes
   * bash files
-  * vim files
   * git files
-  * ruby files (bundler, rspec, gemrc, rdebug)
-  * python files (actually, powerline extensions)
+  * neovim files
+  * powerline files
+  * ruby files
+  * clojure files
 
 
 ## Requirements
 
-  * [rbenv](https://github.com/sstephenson/rbenv)
-  * [nvm](https://github.com/creationix/nvm)
-  * [tpm](https://github.com/tmux-plugins/tpm)
   * direnv
-  * python2 + pip
-  * git (+ git-contrib)
+  * ncurses (tput)
 
 
 ## Usage
@@ -26,14 +23,19 @@ Includes
 ```sh
     git clone git@github.com:danieltdt/dotfiles.git
     cd dotfiles
-    git submodule update --init --recursive
-
+    #
     # Install required dependencies
-    # - $ sudo pacman -S python2 git tmux
-    #   or
-    # - $ brew install bash-completion git python rbenv tmux ruby-build neovim
-    # - go to github and install: rbenv and tpm
-
+    #
+    #   sudo pacman -S ncurses # for archlinux
+    #
+    # or
+    #
+    #   brew install bash-completion ncurses # for macos
+    #
+    # Install optional dependencies
+    #
+    # rbenv; ruby-build; nvm; pyenv; git; python2; tmux; neovim; vim-plug
+    #
     # Create symlinks
     rbenv exec ruby install.rb
 ```
