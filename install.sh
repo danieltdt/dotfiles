@@ -1,8 +1,7 @@
-#!/usr/bin/sh
-
-default_workspace="${HOME}/workspace"
+#!/bin/sh
 
 # workspace
+default_workspace="${HOME}/workspace"
 echo "Enter your workspace folder (default: ${default_workspace}): "
 read workspace
 [ "x" = "x${workspace}" ] && workspace="${default_workspace}"
@@ -34,7 +33,7 @@ done
 # dotfiles
 for file in *; do
   case "${file}" in
-    TODO*|README*|install*|config*|local*) ;;
+    TODO*|README*|install*|test*|config*|local*) ;;
     *) ln -nsf "${PWD}/${file}" "${HOME}/.${file}"
   esac
 done
