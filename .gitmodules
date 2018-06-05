@@ -1,6 +1,0 @@
-[submodule "powerline"]
-	path = dependencies/powerline
-	url = https://github.com/Lokaltog/powerline.git
-[submodule "dependencies/resty"]
-	path = dependencies/resty
-	url = https://github.com/micha/resty.git

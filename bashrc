@@ -110,10 +110,6 @@ fi
 # Enable jenv shims and autocompletion
 if which jenv > /dev/null 2>&1; then eval "$(jenv init -)"; fi
 
-#########################
-# Enable resty functions
-[[ -f "$HOME/workspace/resty/resty" ]] && . "$HOME/workspace/resty/resty"
-
 # rbenv prompt (from https://gist.github.com/kyanny/1668822)
 __rbenv_ps1 ()
 {
@@ -162,7 +158,6 @@ export PATH="/usr/local/heroku/bin:$PATH"             # Heroku Toolbelt
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"                # Ruby gems
 export PATH=$HOME/Applications/android-sdk-linux/platform-tools:$PATH  # Android
 export PATH=$HOME/Applications/apache-jmeter/bin:$PATH                 # JMeter
-[[ ! -z $WORKSPACE ]] && export PATH=$WORKSPACE/resty:$PATH            # Resty helpers
 
 #########################
 # Prompt

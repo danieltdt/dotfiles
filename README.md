@@ -9,7 +9,6 @@ Includes
   * git files
   * ruby files (bundler, rspec, gemrc, rdebug)
   * python files (actually, powerline extensions)
-  * powerline (for vim and tmux)
 
 
 ## Requirements
@@ -32,9 +31,8 @@ Includes
     # Install required dependencies
     # - $ sudo pacman -S python2 git tmux
     #   or
-    # - $ brew install bash-completion git python rbenv tmux ruby-build
-    # - $ brew install macvim --env-std --override-system-vim
-    # - go to github and install: nvm, rbenv and tpm
+    # - $ brew install bash-completion git python rbenv tmux ruby-build neovim
+    # - go to github and install: rbenv and tpm
 
     # Create symlinks
     rbenv exec ruby install.rb

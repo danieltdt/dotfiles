@@ -14,7 +14,6 @@ end
 # install vim-plug
 run "curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
-# Link dependencies to workspace
 default_workspace = File.join(Dir.home, "workspace")
 puts "Enter your workspace folder (default: #{default_workspace})"
 workspace = gets.strip
@@ -22,12 +21,6 @@ workspace = default_workspace if workspace.empty?
 `echo 'export WORKSPACE=#{workspace}' >> ~/.env`
 
 FileUtils.mkdir_p workspace
-Dir['dependencies/*'].each do |dependency|
-  source  = File.expand_path(dependency)
-  destiny = File.join(workspace, dependency.sub('dependencies/', ''))
-
-  create_link source, destiny
-end
 
 # Link config files to XDG_CONFIG_HOME
 config_dir = ENV['XDG_CONFIG_HOME'] || File.join(Dir.home, ".config")
@@ -53,7 +46,7 @@ end
 
 # Copy dotfiles
 Dir['*'].each do |file|
-  next if file =~ /^(?:TODO|README|install|dependencies|config|local)$/
+  next if file =~ /^(?:TODO|README|install|config|local)$/
 
   source  = File.expand_path(file)
   destiny = File.join(Dir.home, ".#{file}")
