@@ -28,3 +28,9 @@
 
 [commit]
 	gpgsign = true
+[diff]
+	tool = nvimdiff
+[difftool]
+	prompt = false
+[difftool "nvimdiff"]
+	cmd = nvim -d -O $LOCAL $REMOTE
