@@ -18,6 +18,7 @@ Plug 'mattn/emmet-vim'                 " expanding abbreviations
 
 " Syntax
 Plug 'w0rp/ale'                        " async lint engine
+Plug 'editorconfig/editorconfig-vim'   " load code style definitions
 
 " Git
 Plug 'tpope/vim-fugitive'              " awesome git wrapper
