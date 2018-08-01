@@ -83,11 +83,16 @@ set ignorecase            " Case insensitive search
 set incsearch             " Show matching cases while typing
 set smartcase             " Override ignorecase if pattern contains upper case chars
 
-set wildignore+=.git,.svn
-set wildignore+=*.o,*.out,*.obj,*.pyc,*.rbc,*.class,*.jar,*.gem
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
-set wildignore+=*/node_modules/*,*/bower_components/*,*/public/assets/*,__pycache__
+set wildignore+=.git,.git/*,.svn,.svn/*                              " version control files
+set wildignore+=*.o,*.out,*.obj,*.pyc,*.rbc,*.class,*.jar,*.gem      " compiled files
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz              " compressed files
+set wildignore+=vendor/gems/*,vendor/cache/*,.bundle/*,.sass-cache/*
+set wildignore+=node_modules,node_modules/*
+set wildignore+=bower_components,bower_components/*
+set wildignore+=public/assets/*
+set wildignore+=__pycache__
+set wildignore+=target/*,classes/*,.lein-*,tmp/*
+
 
 " Mappings
 " Use space key as leader

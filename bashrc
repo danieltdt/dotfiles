@@ -143,6 +143,7 @@ fi
 #########################
 # Defining & redefining some env vars
 # export PULSE_LATENCY_MSEC=60 # Uncomment this line if skype sound is distorted
+export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR='vim'
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$HOME/.local/python-libs:/usr/lib/python3.4/site-packages
