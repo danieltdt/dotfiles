@@ -30,7 +30,13 @@
 	gpgsign = true
 [diff]
 	tool = nvimdiff
+[merge]
+	tool = nvimdiff
 [difftool]
 	prompt = false
+[mergetool]
+	prompt = false
+[mergetool "nvimdiff"]
+	cmd = nvim -d -O $LOCAL $REMOTE
 [difftool "nvimdiff"]
 	cmd = nvim -d -O $LOCAL $REMOTE
