@@ -7,10 +7,13 @@ let g:clojure_align_multiline_strings = 1
 let g:clojure_align_subforms = 1
 
 " Plugins modification
+let g:deoplete#enable_at_startup = 1
 let g:airline_powerline_fonts = 1
 au BufRead,BufNewFile *.es6         set filetype=javascript
 au BufRead,BufNewFile *nginx/*.conf set filetype=nginx
 au FileType           javascript    set dictionary+=~/.local/share/nvim/plugged/vim-node-dict/dict/node.dict
+au FileType           java          set tags=~/.vim/java.tags
+au FileType           java          setlocal omnifunc=javacomplete#Complete
 
 " Load rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
@@ -116,12 +119,6 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-" mimics ctrlp using vim fuzzy finder
-nnoremap <C-o> :e **/*
-nnoremap <C-t> :tabnew **/*
-nnoremap <C-x> :vsplit **/*
-nnoremap <C-s> :split **/*
 
 " duplicate buffer on new tab
 nnoremap <C-w>T :tab split<CR>

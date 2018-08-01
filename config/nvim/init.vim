@@ -51,6 +51,9 @@ Plug 'nanotech/jellybeans.vim'
 " Dictionaries
 Plug 'guileen/vim-node-dict'
 
+" Tags
+Plug 'ludovicchabant/vim-gutentags'
+
 " Others
 Plug 'junegunn/vim-easy-align'         " emacs like align
 Plug 'moll/vim-node'                   " node.js tools
@@ -70,9 +73,18 @@ Plug 'clojure-vim/acid.nvim', {'do':
         \ ':UpdateRemotePlugin'}       " async clojure interactive development
 
 " Completion
-Plug 'roxma/nvim-completion-manager'   " completion framework for nvim (ncm)
-Plug 'clojure-vim/async-clj-omni'      " clojure support for ncm
-Plug 'roxma/ncm-rct-complete'          " ruby support for ncm
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/neco-syntax'            " many languages completion (using syntax keywords)
+Plug 'clojure-vim/async-clj-omni'    " clojure completion (using nrepl-python-client)
+Plug 'zchee/deoplete-jedi'           " python completion (using jedi)
+Plug 'artur-shaik/vim-javacomplete2' " java completion
+
 call plug#end()
 
 source ~/.vimrc
