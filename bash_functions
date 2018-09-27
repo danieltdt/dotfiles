@@ -1,5 +1,85 @@
 #!/bin/bash
 
+datomic () {
+  local default_datomic_dir=(~/.local/datomic-pro-*)
+  local default_dev_uri="datomic:dev://localhost:4334/"
+
+  local datomic_dir="${DATOMIC_PRO_DIR:-${DATOMIC_FREE_DIR:-${default_datomic_dir}}}"
+  local datomic_config_dir="${XDG_CONFIG_HOME:-"${HOME}/.config"}/datomic"
+  local datomic_data_dir="${datomic_dir}/data"
+
+  local transactor_properties="${datomic_config_dir}/transactor.properties"
+  local console_aliases="${DATOMIC_CONSOLE_ALIASES:-"dev ${default_dev_uri}"}"
+  local console_args="-p 8080 ${console_aliases}"
+
+  local command="${1:-help}"
+  local args="${@:2}"
+
+  if [[ ! -d "${datomic_dir}" ]]; then
+    echo "Datomic not found. Access https://www.datomic.com/get-datomic.html and download the latest version." \
+      >&2
+    return -1
+  else
+    case "${command}" in
+      config)
+        mkdir -p "${datomic_config_dir}"
+        if [[ ! -f "${transactor_properties}" ]]; then
+          echo "creating ${transactor_properties}"
+          cp -f "${datomic_dir}/config/samples/dev-transactor-template.properties" \
+                "${transactor_properties}"
+        else
+          echo "${transactor_properties} already exists."
+        fi
+        ;;
+      dir)
+        echo "${datomic_dir}"
+        ;;
+      uri)
+        echo "${default_dev_uri}"
+        ;;
+      transactor)
+        if [[ ! -f "${transactor_properties}" ]]; then
+          echo "${transactor_properties}: not found, run 'datomic config'" >&2
+          return -1
+        else
+          "${datomic_dir}"/bin/transactor "${args:-${transactor_properties}}"
+        fi
+        ;;
+      console)
+        "${datomic_dir}"/bin/console ${args:-${console_args}}
+        ;;
+      restore-db)
+        echo "INFO: :dev and :free storages require a running transactor."
+        echo "INFO: use \$JAVA_OPTS to set -Xms and -Xmx recommend by datomic."
+        echo "WARN: The following directory will be REMOVED!"
+        echo "    ${datomic_data_dir}"
+        read -p " Are you sure? [y/N] " -r
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+          echo "INFO: Aborted."
+          return 1
+        else
+          echo "INFO: Removing data dir..."
+          rm -rf "${datomic_data_dir}"
+          echo "INFO: Restoring..."
+          "${datomic_dir}"/bin/datomic ${JAVA_OPTS} restore-db ${args}
+          echo "INFO: :dev and :free storages requires a transactor restart after backup restore."
+        fi
+        ;;
+      *) echo "Usage: datomic <command> [<args>]"
+         echo ""
+         echo "COMMANDS"
+         echo "  help        print this message"
+         echo "  config      copy config template to \$XDG_CONFIG_HOME/datomic"
+         echo "  dir         print datomic directory and exit"
+         echo "  uri         print dev transactor uri without database name and exit"
+         echo "  transactor  start datomic transacator"
+         echo "  console     start datomic console"
+         echo "  restore-db  runs 'datomic restore-db'"
+         echo
+    esac
+  fi
+}
+
 scd () {
   cd ${PWD/$1/$2}
 }
