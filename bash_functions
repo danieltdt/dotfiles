@@ -1,22 +1,43 @@
 #!/bin/bash
 
 datomic () {
-  local default_datomic_dir=(~/.local/datomic-pro-*)
-  local default_dev_uri="datomic:dev://localhost:4334/"
+  local datomic_version=""
+  case "${1}" in
+    pro)  datomic_version="pro"  ;;
+    free) datomic_version="free" ;;
+    *) echo >&2 "${1}: invalid datomic version, use 'free' or 'pro'"; return -1
+  esac
 
-  local datomic_dir="${DATOMIC_PRO_DIR:-${DATOMIC_FREE_DIR:-${default_datomic_dir}}}"
-  local datomic_config_dir="${XDG_CONFIG_HOME:-"${HOME}/.config"}/datomic"
+  local default_datomic_protocol=""
+  if [[ "${datomic_version}" == "pro" ]]; then
+    default_datomic_protocol="dev"
+  else
+    default_datomic_protocol="free"
+  fi
+
+  local custom_datomic_dir=""
+  if [[ "${datomic_version}" == "pro" ]]; then
+    custom_datomic_dir="${DATOMIC_PRO_DIR}"
+  else
+    custom_datomic_dir="${DATOMIC_FREE_DIR}"
+  fi
+
+  local default_datomic_dir=(~/.local/datomic-${datomic_version}-*)
+  local default_dev_uri="datomic:${default_datomic_protocol}://localhost:4334/"
+
+  local datomic_dir="${custom_datomic_dir:-${default_datomic_dir}}"
+  local datomic_config_dir="${XDG_CONFIG_HOME:-"${HOME}/.config"}/datomic-${datomic_version}"
   local datomic_data_dir="${datomic_dir}/data"
 
   local transactor_properties="${datomic_config_dir}/transactor.properties"
   local console_aliases="${DATOMIC_CONSOLE_ALIASES:-"dev ${default_dev_uri}"}"
   local console_args="-p 8080 ${console_aliases}"
 
-  local command="${1:-help}"
-  local args="${@:2}"
+  local command="${2:-help}"
+  local args="${@:3}"
 
   if [[ ! -d "${datomic_dir}" ]]; then
-    echo "Datomic not found. Access https://www.datomic.com/get-datomic.html and download the latest version." \
+    echo "Datomic not found. Access https://www.datomic.com/get-datomic.html and download the latest pro version." \
       >&2
     return -1
   else
@@ -25,7 +46,7 @@ datomic () {
         mkdir -p "${datomic_config_dir}"
         if [[ ! -f "${transactor_properties}" ]]; then
           echo "creating ${transactor_properties}"
-          cp -f "${datomic_dir}/config/samples/dev-transactor-template.properties" \
+          cp -f "${datomic_dir}/config/samples/${default_datomic_protocol}-transactor-template.properties" \
                 "${transactor_properties}"
         else
           echo "${transactor_properties} already exists."
@@ -65,7 +86,7 @@ datomic () {
           echo "INFO: :dev and :free storages requires a transactor restart after backup restore."
         fi
         ;;
-      *) echo "Usage: datomic <command> [<args>]"
+      *) echo "Usage: datomic pro|free <command> [<args>]"
          echo ""
          echo "COMMANDS"
          echo "  help        print this message"
