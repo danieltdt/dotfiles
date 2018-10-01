@@ -81,9 +81,15 @@ datomic () {
         else
           echo "INFO: Removing data dir..."
           rm -rf "${datomic_data_dir}"
+          echo "INFO: :dev and :free storages requires a running transactor."
+          read -p " Start ${datomic_version} transactor now? [Y/n] " -r
+          if [[ ${REPLY:-y} =~ ^[Yy]$ ]]; then
+            echo "INFO: Starting transactor in background..."
+            datomic ${datomic_version} transactor &
+            sleep 7
+          fi
           echo "INFO: Restoring..."
           "${datomic_dir}"/bin/datomic ${JAVA_OPTS} restore-db ${args}
-          echo "INFO: :dev and :free storages requires a transactor restart after backup restore."
         fi
         ;;
       *) echo "Usage: datomic pro|free <command> [<args>]"
