@@ -10,6 +10,10 @@ let g:clojure_align_subforms = 1
 let g:deoplete#enable_at_startup = 1
 let g:airline_powerline_fonts = 1
 let g:gutentags_cache_dir = '~/.vim/gutentags/'
+let g:LanguageClient_rootMarkers = { 'haskell': ['*.cabal', 'stack.yaml'] }
+
+
+let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper'] }
 au BufRead,BufNewFile *.es6         set filetype=javascript
 au BufRead,BufNewFile *nginx/*.conf set filetype=nginx
 au FileType           javascript    set dictionary+=~/.local/share/nvim/plugged/vim-node-dict/dict/node.dict
@@ -138,3 +142,13 @@ inoremap <leader>mj <Esc>:m .+1<CR>==gi
 inoremap <leader>mk <Esc>:m .-2<CR>==gi
 vnoremap <leader>mj :m '>+1<CR>gv=gv
 vnoremap <leader>mk :m '<-2<CR>gv=gv
+
+" Haskell IDE Engine recommended key bindings
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
+map <Leader>lg :call LanguageClient#textDocument_definition()<CR>
+map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>lb :call LanguageClient#textDocument_references()<CR>
+map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>

@@ -15,6 +15,10 @@ Plug 'tpope/vim-surround'              " better 'surrondings'
 Plug 'itspriddle/vim-stripper'         " strip trailing whitespace
 Plug 'Raimondi/delimitMate'            " delimiter (quotes, parens, etc) completion
 Plug 'mattn/emmet-vim'                 " expanding abbreviations
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': '/bin/bash install.sh'
+    \ }                                " LSP support (required by haskell ide engine)
 
 " Syntax
 Plug 'w0rp/ale'                        " async lint engine
@@ -38,7 +42,7 @@ Plug 'amadeus/vim-mjml'                " mjml support
 Plug 'clojure-vim/async-clj-highlight', {'for':
         \ 'clojure'}                   " clojure support (using acid-vim)
 Plug 'slim-template/vim-slim'          " slim support
-Plug 'kchmck/vim-coffee-script'        " coffeescript
+Plug 'kchmck/vim-coffee-script'        " coffeescript support
 
 " Coloschemes
 Plug 'altercation/vim-colors-solarized'
@@ -68,18 +72,19 @@ Plug 'beloglazov/vim-online-thesaurus' " thesaurus online
 "Plug 'guns/vim-clojure-static'         " clojure runtime files
 Plug 'kien/rainbow_parentheses.vim'    " highlight parens
 Plug 'eraserhd/parinfer-rust', {'do':
-        \  'cargo build --release'}
+        \ 'cargo build --release'}
 Plug 'clojure-vim/acid.nvim', {'do':
         \ ':UpdateRemotePlugin'}       " async clojure interactive development
 
 " Completion
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
 Plug 'Shougo/neco-syntax'            " many languages completion (using syntax keywords)
 Plug 'clojure-vim/async-clj-omni'    " clojure completion (using nrepl-python-client)
 Plug 'zchee/deoplete-jedi'           " python completion (using jedi)
