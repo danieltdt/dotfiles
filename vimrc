@@ -118,7 +118,9 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 nnoremap <tab> :tabnext<cr>
 nnoremap <s-tab> :tabprevious<cr>
 
-nnoremap <C-p> :FZF<CR>
+nnoremap <c-p> :FZF<CR>
+nnoremap <leader>b :call fzf#run({'source': map(range(1, bufnr('$')), 'bufname(v:val)'),
+                              \ 'sink': 'e', 'down': '30%'})<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)

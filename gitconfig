@@ -1,7 +1,7 @@
 [user]
 	name = Daniel Teixeira
-	email = daniel.t.dt@gmail.com
-	signingkey = 1448867AF659B99A
+	email = daniel.teixeira@quintoandar.com.br
+	signingkey = FFF93CADB6AA3023
 [alias]
 	st = status
 	co = checkout
