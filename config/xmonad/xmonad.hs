@@ -16,17 +16,16 @@ import System.IO
 -- TODO: hook in TopicSpaces, start specific apps on specific workspaces
 
 main = do
-  xmproc <- spawnPipe "/usr/bin/xmobar /home/timo/.xmonad/xmobarrc"
-  xmonad defaultConfig {
-    modMask = mod4Mask,
-    terminal = "urxvt",
--- if you are using xmonad 0.9, you can avoid web flash videos getting cropped in fullscreen like so:
--- manageHook = ( isFullscreen --> doFullFloat ) <+> manageDocks <+> manageHook defaultConfig,
--- (no longer needed in 0.10)
-    manageHook = manageDocks <+> manageHook defaultConfig,
-    layoutHook = avoidStruts $ layoutHook defaultConfig,
-    logHook = dynamicLogWithPP $ xmobarPP
-                        { ppOutput = hPutStrLn xmproc,
-                          ppTitle = xmobarColor "green" "" . shorten 50
-                        }
-  }
+  xmproc <- spawnPipe "/usr/bin/xmobar /home/daniel/.config/xmonad/xmobarrc"
+
+  xmonad def
+            { terminal = "hyper"
+              , modMask = mod4Mask
+              , borderWidth = 3
+              , manageHook = manageDocks <+> manageHook def
+              , layoutHook = avoidStruts $ layoutHook def
+              , logHook = dynamicLogWithPP $ xmobarPP
+                                                     { ppOutput = hPutStrLn xmproc
+                                                     , ppTitle = xmobarColor "green" "" . shorten 50
+                                                     }
+            }

@@ -1,7 +1,6 @@
 [user]
 	name = Daniel Teixeira
-	email = daniel.teixeira@quintoandar.com.br
-	signingkey = FFF93CADB6AA3023
+	email = daniel.t.dt@gmail.com
 [alias]
 	st = status
 	co = checkout
@@ -26,8 +25,6 @@
 [heroku]
 	account = personal
 
-[commit]
-	gpgsign = true
 [diff]
 	tool = nvimdiff
 [merge]
