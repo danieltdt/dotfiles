@@ -8,6 +8,8 @@ let g:clojure_align_subforms = 1
 
 " Plugins modification
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#keyword_patterns = {}
+let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 let g:airline_powerline_fonts = 1
 let g:gutentags_cache_dir = '~/.vim/gutentags/'
 let g:LanguageClient_rootMarkers = { 'haskell': ['*.cabal', 'stack.yaml'] }
