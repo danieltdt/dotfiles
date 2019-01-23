@@ -42,6 +42,11 @@ datomic () {
     return -1
   else
     case "${command}" in
+      info)
+        echo "datomic_dir        ${datomic_dir}"
+        echo "datomic_config_dir ${datomic_config_dir}"
+        echo "console_args       ${console_args}"
+        ;;
       config)
         mkdir -p "${datomic_config_dir}"
         if [[ ! -f "${transactor_properties}" ]]; then
