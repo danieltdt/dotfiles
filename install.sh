@@ -9,7 +9,9 @@ read workspace
 
 mkdir -p "${workspace}"
 
-echo "export WORKSPACE=${workspace}" > "${HOME}/.env"
+if ! egrep -q "export WORKSPACE=" "${HOME}/.env"; then
+  echo "export WORKSPACE=${workspace}" >> "${HOME}/.env"
+fi
 
 ###
 # config files
