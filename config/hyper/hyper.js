@@ -10,7 +10,7 @@ module.exports = {
 
     // default font size in pixels for all tabs
     //fontSize: 12,
-    fontSize: 12,
+    fontSize: 16,
 
     // font family with optional fallbacks
     //fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -134,7 +134,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyper-blink", "hyper-material-theme", "hyper-hide-title"],
+  plugins: ["hyper-blink", "hyper-material-theme", "hyper-hide-title", "hyper-pane"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
