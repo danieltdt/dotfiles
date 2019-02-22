@@ -13,6 +13,7 @@ let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 let g:airline_powerline_fonts = 1
 let g:gutentags_cache_dir = '~/.vim/gutentags/'
 let g:LanguageClient_rootMarkers = { 'haskell': ['*.cabal', 'stack.yaml'] }
+let g:ale_python_pylint_executable = 'pyenv exec pylint'
 
 
 let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper'] }
