@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+virtualenv_name="$(cut -d' ' -f1-1 <<< $1)"
+cmd="$(cut -d' ' -f2- <<< "${@:1}")"
+
+eval "$(pyenv init -)"
+pyenv shell "$virtualenv_name"
+pyenv activate
+
+exec $cmd
