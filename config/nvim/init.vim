@@ -67,6 +67,7 @@ Plug 'rainerborene/vim-reek'           " ruby code smell detection (requires `re
 Plug 'ngmy/vim-rubocop'                " rubocop support
 Plug 'wfleming/vim-codeclimate'        " codeclimate support
 Plug 'beloglazov/vim-online-thesaurus' " thesaurus online
+Plug 'junegunn/vader.vim'              " vimscript test framework
 
 " For Lisp dialects (emacs flavors)
 "Plug 'guns/vim-clojure-static'         " clojure runtime files
