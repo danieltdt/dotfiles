@@ -22,6 +22,7 @@
 	diff = auto
 	status = auto
 	branch = auto
+	ui = true
 [heroku]
 	account = personal
 
@@ -37,3 +38,15 @@
 	cmd = nvim -d -O $LOCAL $REMOTE
 [difftool "nvimdiff"]
 	cmd = nvim -d -O $LOCAL $REMOTE
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
