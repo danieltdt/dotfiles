@@ -3,3 +3,4 @@
 /lein/repl-history
 /config/xmonad/*.hi
 /config/xmonad/*.o
+/config/xmonad/.stack-work/

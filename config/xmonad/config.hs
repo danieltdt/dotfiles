@@ -1,11 +1,11 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Gaps
+import XMonad.Hooks.ManageHelpers()
+import XMonad.Layout.NoBorders()
+import XMonad.Layout.Gaps()
 import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
+-- import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
 -- NOTES: 0.10 works much better than 0.9, unfortunately distros mostly package 0.9 atm
@@ -19,7 +19,7 @@ main = do
   xmproc <- spawnPipe "/usr/bin/xmobar /home/daniel/.config/xmonad/xmobarrc"
 
   xmonad def
-            { terminal = "hyper"
+            { terminal = "alacritty"
               , modMask = mod4Mask
               , borderWidth = 3
               , manageHook = manageDocks <+> manageHook def
