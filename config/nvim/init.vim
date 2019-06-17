@@ -43,6 +43,7 @@ Plug 'clojure-vim/async-clj-highlight', {'for':
         \ 'clojure'}                   " clojure support (using acid-vim)
 Plug 'slim-template/vim-slim'          " slim support
 Plug 'kchmck/vim-coffee-script'        " coffeescript support
+Plug 'vim-scripts/bats.vim'            " bats (bash) support
 
 " Coloschemes
 Plug 'altercation/vim-colors-solarized'
