@@ -7,6 +7,7 @@ alias gvim="gvim 2> /dev/null"
 alias tm="source ./tmux.sh"
 alias yolo="git ci -am'This is an amazing commit'"
 alias productivity="ruby -e '(1..1000).each {|i| sleep i/1000.0; print \"#{%Q{\b} * 100}#{%q{.} * (i.div 10)} (#{i.div 10}%)\" }'"
+alias lein*='docker run --rm -it -v $PWD:/tmp -v clojure-lein-m2:/root/.m2 clojure:lein-2.8.3 lein'
 
 grep_options='--exclude-dir=node_modules --exclude-dir=.bundle --exclude-dir=.git --exclude-dir=coverage'
 
