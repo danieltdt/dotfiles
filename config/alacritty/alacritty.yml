@@ -49,7 +49,6 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  #decorations: full
   decorations: none
 
   # Startup Mode (changes require restart)
@@ -61,8 +60,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
-  startup_mode: Fullscreen
+  startup_mode: Windowed
 
   # Window title
   #title: Alacritty
@@ -110,7 +108,6 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    #family: monospace
     family: Hack
 
     # The `style` can be specified to pick a specific face.
@@ -122,7 +119,6 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
     family: Hack
 
     # The `style` can be specified to pick a specific face.
@@ -134,14 +130,12 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
     family: Hack
 
     # The `style` can be specified to pick a specific face.
     style: Italic
 
   # Point size
-  #size: 11.0
   size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
@@ -180,8 +174,6 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    #background: '0x000000'
-    #foreground: '0xeaeaea'
     background: '0x404552'
     foreground: '0xbdbdbd'
 
@@ -212,14 +204,6 @@ colors:
 
   # Normal colors
   normal:
-    #black:   '0x000000'
-    #red:     '0xd54e53'
-    #green:   '0xb9ca4a'
-    #yellow:  '0xe6c547'
-    #blue:    '0x7aa6da'
-    #magenta: '0xc397d8'
-    #cyan:    '0x70c0ba'
-    #white:   '0xeaeaea'
     black:   '0x000000'
     red:     '0xc51e14'
     green:   '0x1dc121'
@@ -231,14 +215,6 @@ colors:
 
   # Bright colors
   bright:
-    #black:   '0x666666'
-    #red:     '0xff3334'
-    #green:   '0x9ec400'
-    #yellow:  '0xe7c547'
-    #blue:    '0x7aa6da'
-    #magenta: '0xb77ee0'
-    #cyan:    '0x54ced6'
-    #white:   '0xffffff'
     black:   '0x686868'
     red:     '0xfd6f6b'
     green:   '0x67f86f'
@@ -332,8 +308,7 @@ mouse:
   triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
-  hide_when_typing: true
+  hide_when_typing: false
 
   url:
     # URL launcher
@@ -355,8 +330,7 @@ mouse:
     #
     # These are the modifiers that need to be held down for opening URLs when clicking
     # on them. The available modifiers are documented in the key binding section.
-    #modifiers: None
-    modifiers: Control
+    modifiers: None
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
