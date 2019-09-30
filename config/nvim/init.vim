@@ -19,6 +19,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': '/bin/bash install.sh'
     \ }                                " LSP support (required by haskell ide engine)
+Plug 'neoclide/coc.nvim',              {
+    \ 'branch': 'release'
+    \ }                                " better LSP support
 
 " Syntax
 Plug 'w0rp/ale'                        " async lint engine

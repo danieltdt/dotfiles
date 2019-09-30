@@ -29,3 +29,5 @@
 
 # custom coffeelint
 /.coffeelint.json
+
+/.lsp
