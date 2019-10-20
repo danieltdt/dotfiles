@@ -120,7 +120,7 @@ npm_exec () {
   ./node_modules/.bin/$@
 }
 
-mvn () {
+mvn- () {
   local working_dir="${MVN_WORKING_DIR:-${PWD}}"
   local dockerfile="${MVN_DOCKERFILE:-mvn.dockerfile}"
   local run_opts="${MVN_RUN_OPTS:-}"
