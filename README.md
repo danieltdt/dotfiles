@@ -1,41 +1,15 @@
-My dotfiles
------------
+dotfiles
+--------
 
-My dotfiles for linux development environment.
-
-Includes
-  * bash files
-  * git files
-  * neovim files
-  * powerline files
-  * ruby files
-  * clojure files
-
+My configuration files.
 
 ## Requirements
 
-  * direnv
-  * ncurses (tput)
-
+  * [rcm](https://github.com/thoughtbot/rcm)
 
 ## Usage
 
 ```sh
-    git clone git@github.com:danieltdt/dotfiles.git
-    cd dotfiles
-    #
-    # Install required dependencies
-    #
-    #   sudo pacman -S ncurses # for archlinux
-    #
-    # or
-    #
-    #   brew install bash-completion ncurses # for macos
-    #
-    # Install optional dependencies
-    #
-    # rbenv; ruby-build; nvm; pyenv; git; python2; tmux; neovim; vim-plug
-    #
-    # Create symlinks
-    rbenv exec ruby install.rb
+    git clone git@github.com:danieltdt/dotfiles.git ~/danieltdt.dotfiles
+    rcup -d ~/danieltdt.dotfiles -x README.md -v
 ```

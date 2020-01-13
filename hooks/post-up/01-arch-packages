@@ -1,0 +1,35 @@
+#!/bin/sh
+
+if command -v pacman > /dev/null; then
+  echo "---> Install the following packages"
+
+  echo
+  echo pacman -Sy --needed --noconfirm \
+    bash-completion git ncurses neovim pyenv python2 tmux \
+    xmonad xmonad-contrib xmobar
+  echo
+fi
+
+if command -v auracle > /dev/null; then
+  echo "---> Download and install the following aur packages"
+
+  echo
+  echo auracle clone \
+    alacritty-git \
+    alacritty-terminfo-git \
+    albert \
+    arc-icon-theme-git \
+    direnv \
+    haskell-ide-engine \
+    i3lock-blur \
+    joker-bin \
+    kubernetes-bin \
+    leiningen \
+    nvm \
+    muparser \
+    mysql-connector-java \
+    rbenv \
+    ruby-build \
+    stern-bin
+  echo
+fi
