@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# start albert daemon
+if command -v albert >/dev/null; then
+  albert &
+fi
+
+# load xrandr layout config
+if [ -f ~/.screenlayout/default-layout.sh ]; then
+  ~/.screenlayout/default-layout.sh
+fi
+
+# start ssh-agent
+if command -v ssh-agent >/dev/null; then
+  eval "$(ssh-agent -s)"
+fi
