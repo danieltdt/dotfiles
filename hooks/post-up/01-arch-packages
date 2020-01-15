@@ -22,12 +22,13 @@ if command -v auracle > /dev/null; then
     direnv \
     haskell-ide-engine \
     i3lock-blur \
+    jetbrains-mono \
     joker-bin \
     kubernetes-bin \
     leiningen \
-    nvm \
     muparser \
     mysql-connector-java \
+    nvm \
     rbenv \
     ruby-build \
     stern-bin
