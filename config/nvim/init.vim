@@ -21,7 +21,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }                                " LSP support (required by haskell ide engine)
 Plug 'neoclide/coc.nvim',              {
     \ 'branch': 'release'
-    \ }                                " better LSP support
+    \ }                                " better LSP support and completion
 
 " Syntax
 Plug 'w0rp/ale'                        " async lint engine
@@ -80,15 +80,6 @@ Plug 'eraserhd/parinfer-rust', {'do':
         \ 'cargo build --release'}
 Plug 'clojure-vim/acid.nvim', {'do':
         \ ':UpdateRemotePlugin'}       " async clojure interactive development
-
-" Completion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 
 Plug 'Shougo/neco-syntax'            " many languages completion (using syntax keywords)
 Plug 'clojure-vim/async-clj-omni'    " clojure completion (using nrepl-python-client)
