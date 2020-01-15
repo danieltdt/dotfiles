@@ -16,7 +16,7 @@ if command -v ssh-agent >/dev/null; then
 fi
 
 # set keyboard repeat delay & rate
-xset r rate 450 50
+xset r rate 450 45
 
 # lock on inactivity
 xautolock -time 10 -locker ~/.local/bin/i3lock-with-blur -secure &
