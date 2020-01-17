@@ -13,8 +13,8 @@ myStatusBar = "xmobar"
 -- Custom pretty-print. Determines what is being written to the bar
 myPP = xmobarPP
   { ppCurrent       = xmobarColor "#5294e2" "" . wrap "<" ">"
-  , ppVisible       = xmobarColor "#ffffff" "" . wrap "(" ")"
-  , ppTitle         = xmobarColor "#20c5c6" "" . shorten 40
+  , ppVisible       = xmobarColor "#c4c4c4" "" . wrap "(" ")"
+  , ppTitle         = xmobarColor "#ffffff" "" . shorten 40
   , ppTitleSanitize = xmobarStrip . dzenEscape
   }
 
