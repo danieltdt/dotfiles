@@ -22,7 +22,6 @@ if command -v auracle > /dev/null; then
     direnv \
     haskell-ide-engine \
     i3lock-blur \
-    jetbrains-mono \
     joker-bin \
     kubernetes-bin \
     leiningen \
