@@ -2,6 +2,7 @@ import qualified XMonad.StackSet as W
 import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Config.Desktop
+import XMonad.Config.Gnome
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 
@@ -26,7 +27,8 @@ toggleStrutsKey XConfig
 myWorkspaces = [ "1:web", "2:code", "3:bash" ] ++ map show [ 4..9 ]
 
 -- Custom config
-myConfig = desktopConfig
+-- myConfig = desktopConfig
+myConfig = gnomeConfig
   { terminal           = "alacritty"
   , modMask            = mod4Mask
   , workspaces         = myWorkspaces
