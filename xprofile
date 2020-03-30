@@ -1,5 +1,9 @@
 #!/bin/sh
 
+[ "$@" = "/usr/bin/gnome-session" ] && return 0;
+
+echo "$@: sourcing user .xprofile"
+
 # start albert daemon
 if command -v albert >/dev/null; then
   albert &
