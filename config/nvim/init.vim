@@ -72,6 +72,7 @@ Plug 'ngmy/vim-rubocop'                " rubocop support
 Plug 'wfleming/vim-codeclimate'        " codeclimate support
 Plug 'beloglazov/vim-online-thesaurus' " thesaurus online
 Plug 'junegunn/vader.vim'              " vimscript test framework
+Plug 'mzlogin/vim-markdown-toc'        " table of contents generator
 
 " For Lisp dialects (emacs flavors)
 "Plug 'guns/vim-clojure-static'         " clojure runtime files
