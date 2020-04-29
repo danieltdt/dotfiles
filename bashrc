@@ -143,6 +143,7 @@ fi
 #########################
 # Defining & redefining some env vars
 # export PULSE_LATENCY_MSEC=60 # Uncomment this line if skype sound is distorted
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR='vim'
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
