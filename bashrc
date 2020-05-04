@@ -176,3 +176,7 @@ eval "$(direnv hook bash)"
 if [ -f /usr/local/m-cli/m ]; then
   export PATH=$PATH:/usr/local/m-cli
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/daniel/.sdkman"
+[[ -s "/home/daniel/.sdkman/bin/sdkman-init.sh" ]] && source "/home/daniel/.sdkman/bin/sdkman-init.sh"
