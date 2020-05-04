@@ -182,83 +182,114 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
-colors:
-  # Default colors
-  primary:
-    background: '0x404552'
-    foreground: '0xbdbdbd'
+schemes:
 
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #dim_foreground: '0x9a9a9a'
-    #bright_foreground: '0xffffff'
+  ### Edge (Light variant)
+  edge_light:	  &edge_light
+    primary:
+      background: "0xfafafa"
+      foreground: "0x4b505b"
 
-  # Cursor colors
-  #
-  # Colors which should be used to draw the terminal cursor. If these are unset,
-  # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '0x000000'
-  #  cursor: '0xffffff'
+    normal:
+      black: "0x4b505b"
+      red: "0xd05858"
+      green: "0x608e32"
+      yellow: "0xbe7e05"
+      blue: "0x5079be"
+      magenta: "0xb05ccc"
+      cyan: "0x3a8b84"
+      white: "0xfafafa"
 
-  # Selection colors
-  #
-  # Colors which should be used to draw the selection area. If selection
-  # background is unset, selection color will be the inverse of the cell colors.
-  # If only text is unset the cell text color will remain the same.
-  #selection:
-  #  text: '0xeaeaea'
-  #  background: '0x404040'
+    bright:
+      black: "0x4b505b"
+      red: "0xd05858"
+      green: "0x608e32"
+      yellow: "0xbe7e05"
+      blue: "0x5079be"
+      magenta: "0xb05ccc"
+      cyan: "0x3a8b84"
+      white: "0xfafafa"
 
-  # Normal colors
-  normal:
-    black:   '0x000000'
-    red:     '0xc51e14'
-    green:   '0x1dc121'
-    yellow:  '0xc7c329'
-    blue:    '0x0a2fc4'
-    magenta: '0xc839c5'
-    cyan:    '0x20c5c6'
-    white:   '0xc7c7c7'
+  ### Edge (Dark Default variant)
+  edge_dark_def:  &edge_dark_default
+    primary:
+      background: "0x2c2e34"
+      foreground: "0xc5cdd9"
 
-  # Bright colors
-  bright:
-    black:   '0x686868'
-    red:     '0xfd6f6b'
-    green:   '0x67f86f'
-    yellow:  '0xfffa72'
-    blue:    '0x6a76fb'
-    magenta: '0xfd7cfc'
-    cyan:    '0x68fdfe'
-    white:   '0xffffff'
+    normal:
+      black: "0x3e4249"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
 
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  #dim:
-  #  black:   '0x000000'
-  #  red:     '0x8c3336'
-  #  green:   '0x7a8530'
-  #  yellow:  '0x97822e'
-  #  blue:    '0x506d8f'
-  #  magenta: '0x80638e'
-  #  cyan:    '0x497e7a'
-  #  white:   '0x9a9a9a'
+    bright:
+      black: "0x3e4249"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
 
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
-  #indexed_colors: []
+  ### Edge (Dark Aura variant)
+  edge_dark_aura:  &edge_dark_aura
+    primary:
+      background: "0x2b2d37"
+      foreground: "0xc5cdd9"
+
+    normal:
+      black: "0x363a49"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
+
+    bright:
+      black: "0x363a49"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
+
+  ### Edge (Dark Neon variant)
+  edge_dark_neon:  &edge_dark_neon
+    primary:
+      background: "0x2b2d3a"
+      foreground: "0xc5cdd9"
+
+    normal:
+      black: "0x363a4e"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
+
+    bright:
+      black: "0x363a4e"
+      red: "0xec7279"
+      green: "0xa0c980"
+      yellow: "0xdeb974"
+      blue: "0x6cb6eb"
+      magenta: "0xd38aea"
+      cyan: "0x5dbbc1"
+      white: "0xc5cdd9"
+
+### Choose one of the & tags from the schemes listed above
+colors: *edge_dark_neon
 
 # Visual Bell
 #

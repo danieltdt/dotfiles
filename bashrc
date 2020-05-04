@@ -144,8 +144,22 @@ fi
 # Defining & redefining some env vars
 # export PULSE_LATENCY_MSEC=60 # Uncomment this line if skype sound is distorted
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 export FZF_DEFAULT_COMMAND='ag -g ""'
-export EDITOR='vim'
+# dark edge
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=fg:#c5cdd9,bg:#262729,hl:#6cb6eb
+--color=fg+:#c5cdd9,bg+:#262729,hl+:#5dbbc1
+--color=info:#88909f,prompt:#ec7279,pointer:#d38aea
+--color=marker:#a0c980,spinner:#ec7279,header:#5dbbc1'
+# light edge
+#export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+#--color=fg:#4b505b,bg:#fafafa,hl:#5079be
+#--color=fg+:#4b505b,bg+:#fafafa,hl+:#3a8b84
+#--color=info:#88909f,prompt:#d05858,pointer:#b05ccc
+#--color=marker:#608e32,spinner:#d05858,header:#3a8b84'
+
+export EDITOR='nvim'
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$HOME/.local/python-libs:/usr/lib/python3.4/site-packages
 export M2_HOME=/opt/maven                             # Maven home

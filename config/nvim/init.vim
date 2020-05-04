@@ -55,6 +55,7 @@ Plug 'wellsjo/wells-colorscheme.vim'
 Plug 'EHartC/Spink'
 Plug 'vim-scripts/twilight256.vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'sainnhe/edge'
 
 " Dictionaries
 Plug 'guileen/vim-node-dict'

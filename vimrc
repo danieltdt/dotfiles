@@ -1,6 +1,14 @@
 set nocompatible          " be iMproved, required
 set encoding=utf-8        " utf-8 by default
 
+" Enable true color
+" from https://github.com/tmux/tmux/issues/1246
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 " config clojure
 let g:clojure_maxlines = 0
 let g:clojure_align_multiline_strings = 1
@@ -11,12 +19,15 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'edge'
 let g:gutentags_cache_dir = '~/.vim/gutentags/'
 let g:LanguageClient_rootMarkers = { 'haskell': ['*.cabal', 'stack.yaml'] }
 let g:ale_python_pylint_executable = 'pyenv exec pylint'
 let g:ale_haskell_cabal_ghc_options = '-dynamic -fno-code -v0'
 let g:ale_haskell_ghc_options= '-dynamic -fno-code -v0'
 
+let g:edge_style = 'neon'
+let g:edge_disable_italic_comment = 1
 
 let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper'],
                                       \ }
@@ -56,7 +67,7 @@ set textwidth=80          " Make 80th column visible
 set wrap                  " Line wrapping on
 
 " Colors
-colorscheme jellybeans
+colorscheme edge
 
 set background=dark
 set t_Co=256              " Force 256 colors
