@@ -29,5 +29,6 @@
         }
       }
     }
-  }
+  },
+  "java.trace.server": "verbose"
 }

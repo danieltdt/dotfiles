@@ -22,6 +22,12 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'neoclide/coc.nvim',              {
     \ 'branch': 'release'
     \ }                                " better LSP support and completion
+Plug 'neoclide/coc-java',              {
+    \ 'do': 'yarn install --frozen-lockfile',
+    \ }
+Plug 'neoclide/coc-json',              {
+    \ 'do': 'yarn install --frozen-lockfile',
+    \ }
 
 " Syntax
 Plug 'w0rp/ale'                        " async lint engine
@@ -86,7 +92,6 @@ Plug 'clojure-vim/acid.nvim', {'do':
 Plug 'Shougo/neco-syntax'            " many languages completion (using syntax keywords)
 Plug 'clojure-vim/async-clj-omni'    " clojure completion (using nrepl-python-client)
 Plug 'zchee/deoplete-jedi'           " python completion (using jedi)
-Plug 'artur-shaik/vim-javacomplete2' " java completion
 
 call plug#end()
 
