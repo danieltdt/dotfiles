@@ -72,8 +72,8 @@ colorscheme edge
 set background=dark
 set t_Co=256              " Force 256 colors
 
-highlight NonText ctermbg=none
-highlight Normal ctermbg=none
+highlight NonText guibg=NONE ctermbg=NONE
+highlight Normal guibg=NONE ctermbg=NONE
 
 " Behaviors
 set autoread              " Automatically reload changes if detected
