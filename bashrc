@@ -29,10 +29,6 @@ set -o vi
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set a fancy prompt
-export TERM='screen-256color'
-export COLORTERM='gnome-terminal'
-
 # Fixes for mac os
 if [ "$(uname)" == "Darwin" ]; then
   # enable colors on terminal
