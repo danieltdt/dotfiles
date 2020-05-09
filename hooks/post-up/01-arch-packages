@@ -5,7 +5,7 @@ if command -v pacman > /dev/null; then
 
   echo
   echo pacman -Sy --needed --noconfirm \
-    bash-completion git ncurses neovim pyenv python2 tmux \
+    alacritty bash-completion git ncurses neovim pyenv python2 tmux \
     xmonad xmonad-contrib xmobar
   echo
 fi
@@ -15,8 +15,6 @@ if command -v auracle > /dev/null; then
 
   echo
   echo auracle clone \
-    alacritty-git \
-    alacritty-terminfo-git \
     albert \
     arc-icon-theme-git \
     direnv \
