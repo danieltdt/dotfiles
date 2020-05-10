@@ -1,34 +1,58 @@
 # check http://misc.flogisoft.com/bash/tip_colors_and_formatting#colors1 for
 # color numbers.
 
+style_normal=$(tput sgr0)
+style_name_at_host=$(tput setaf 240)
+style_workspace_dir=$(tput bold; tput setaf 77)
+style_other_dir=$(tput bold; tput setaf 260)
+style_ruby=$(tput setaf 9)
+style_node=$(tput setaf 2)
+style_python=$(tput setaf 10)
+style_ssh_flag="$(tput setab 118; tput setaf 0)  ssh $style_normal "
+
 function print_pre_prompt {
-    local normal=$(tput sgr0)
-    local name_at_host=$(tput setaf 240)
-    local workspace_dir=$(tput bold; tput setaf 77)
-    local other_dir=$(tput bold; tput setaf 260)
-    local ruby=$(tput setaf 9)
-    local node=$(tput setaf 2)
-    local python=$(tput setaf 10)
     local color=''
-    local dir=$PWD
+    local dir="$PWD"
     local spacing_correction=-64 # correction for left & right
 
-    if [[ $PWD == $WORKSPACE* ]] ; then
-      color=$workspace_dir
-      dir=${PWD/$WORKSPACE\//\(work\) }
-    else
-      color=$other_dir
-      dir=${PWD/$HOME/\~}
+    if [[ "x$WORKSPACE" != "x" ]]; then
+      if [[ $PWD == $WORKSPACE* ]] ; then
+	color=$style_workspace_dir
+	dir=${PWD/$WORKSPACE\//\(work\) }
+      else
+	color=$style_other_dir
+	dir=${PWD/$HOME/\~}
+      fi
     fi
 
     local ssh_flag=''
     if [ -n "$SSH_CLIENT" ] ; then
-      ssh_flag="$(tput setab 118; tput setaf 0)  ssh $normal "
+      ssh_flag="$style_ssh_flag"
       spacing_correction=$(($spacing_correction - 22))
     fi
 
-    local left="${ssh_flag}${name_at_host}$USER@$HOSTNAME${normal} ${color}$dir${normal} $(__git_ps1 ' %s')"
-    local right="(${python}🐍 $(__pyenv_ps1 2> /dev/null)${normal}) (${ruby}💎 $(__rbenv_ps1 2> /dev/null)${normal}) (${node}⬢ $(__nvm_ps1 2> /dev/null)${normal})"
+    local python="$(__pyenv_ps1 2> /dev/null)"
+    if [[ "x$python" != "x" ]]; then
+      python="(${style_python} ${python}${style_normal}) "
+    fi
+
+    local ruby="$(__rbenv_ps1 2> /dev/null)"
+    if [[ "x$ruby" != "x" ]]; then
+      ruby="(${style_ruby} ${ruby}${style_normal}) "
+    fi
+
+    local nvm="$(__nvm_ps1 2> /dev/null)"
+    if [[ "x$nvm" != "x" ]]; then
+      nvm="(${style_node} ${nvm}${style_normal})"
+    fi
+
+    local left="${ssh_flag}${style_name_at_host}$USER@$HOSTNAME${style_normal} ${color}$dir${style_normal} $(__git_ps1 ' %s')"
+    local right="${python}${ruby}${nvm}"
+
+
+    if [[ "x$right" == "x" ]]; then
+      spacing_correction=0
+    fi
 
     printf "%s%$(($COLUMNS-${#left}-$spacing_correction))s\n" "$left" "$right"
 }

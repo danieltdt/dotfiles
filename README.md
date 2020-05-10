@@ -20,6 +20,8 @@ My configuration files.
     arc-icon-theme-git
     direnv
     git-delta
+    nerd-fonts-complete
+    otf-nerd-fonts-fira-code
     nvm
     rbenv
     rcm

@@ -1,3 +1,5 @@
+# PS4='+[${SECONDS}s][${BASH_SOURCE}:${LINENO}]: ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+# set -x
 # If not running interactively, don't do anything (debian way)
 [ -z "$PS1" ] && return
 
@@ -65,17 +67,19 @@ fi
 
 ########################
 # Enable nvm
-if [[ -s /usr/share/nvm/init-nvm.sh ]]; then
-  source /usr/share/nvm/init-nvm.sh
-# Homebrew way
-elif [ "$(uname)" == "Darwin" ]; then
-  if [ -f `brew --prefix nvm`/nvm.sh ]; then
-    export NVM_DIR=~/.nvm
-    . $(brew --prefix nvm)/nvm.sh
+if [[ "$(uname -r)" != *-Microsoft ]]; then # Avoid loading nvm on wsl (improve performance)
+  if [[ -s /usr/share/nvm/init-nvm.sh ]]; then
+    source /usr/share/nvm/init-nvm.sh
+  # Homebrew way
+  elif [ "$(uname)" == "Darwin" ]; then
+    if [ -f `brew --prefix nvm`/nvm.sh ]; then
+      export NVM_DIR=~/.nvm
+      . $(brew --prefix nvm)/nvm.sh
+    fi
+  else
+    [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
+    [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
   fi
-else
-  [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
-  [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 fi
 
 #########################
@@ -90,16 +94,20 @@ fi
 
 #########################
 # Enable rbenv shims and autocompletion
-export PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
-eval "$(rbenv init - 2> /dev/null)"
+if [[ "$(uname -r)" != *-Microsoft ]]; then # Avoid loading rbenv on wsl (improve performance)
+  export PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
+  eval "$(rbenv init - 2> /dev/null)"
+fi
 
 #########################
 # Enable pyenv shims and autocompletion
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
+if [[ "$(uname -r)" != *-Microsoft ]]; then # Avoid loading pyenv on wsl (improve performance)
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+  fi
 fi
 
 #########################
@@ -109,6 +117,7 @@ if which jenv > /dev/null 2>&1; then eval "$(jenv init -)"; fi
 # rbenv prompt (from https://gist.github.com/kyanny/1668822)
 __rbenv_ps1 ()
 {
+  [[ "$(uname -r)" == *-Microsoft ]] && return;
   rbenv_ruby_version=`rbenv version 2> /dev/null | sed -e 's/ .*//'`
   printf $rbenv_ruby_version
 }
@@ -116,12 +125,14 @@ __rbenv_ps1 ()
 # nvm prompt
 __nvm_ps1 ()
 {
+  [[ "$(uname -r)" == *-Microsoft ]] && return;
   echo `nvm_ls 'current'`
 }
 
 # pyenv prompt
 __pyenv_ps1 ()
 {
+  [[ "$(uname -r)" == *-Microsoft ]] && return;
   echo `pyenv version | cut -d' ' -f 1`
 }
 
