@@ -8,6 +8,7 @@
       "additionalSchemes": ["jar", "zipfile"],
       "trace.server": "verbose",
       "initializationOptions": {
+        "macro-defs": {}
       }
     },
     "haskell": {
@@ -30,5 +31,6 @@
       }
     }
   },
-  "java.trace.server": "verbose"
+  "java.trace.server": "verbose",
+  "coc.preferences.extensionUpdateCheck": "never"
 }
