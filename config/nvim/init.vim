@@ -48,8 +48,10 @@ Plug 'chr4/nginx.vim'                  " nginx support
 Plug 'lepture/vim-velocity'            " Apache Velocity support
 Plug 'tmux-plugins/vim-tmux'           " vim plugin for tmux.conf
 Plug 'amadeus/vim-mjml'                " mjml support
-Plug 'clojure-vim/async-clj-highlight', {'for':
-        \ 'clojure'}                   " clojure support (using acid-vim)
+"Plug 'clojure-vim/async-clj-highlight', {'for':
+"        \ 'clojure'}                   " clojure support (using acid-vim)
+Plug 'brandonvin/vim-clojure-highlight', {'for':
+        \ 'clojure'}                   " clojure support (using fireplace)
 Plug 'slim-template/vim-slim'          " slim support
 Plug 'kchmck/vim-coffee-script'        " coffeescript support
 Plug 'vim-scripts/bats.vim'            " bats (bash) support
@@ -82,15 +84,16 @@ Plug 'junegunn/vader.vim'              " vimscript test framework
 Plug 'mzlogin/vim-markdown-toc'        " table of contents generator
 
 " For Lisp dialects (emacs flavors)
-"Plug 'guns/vim-clojure-static'         " clojure runtime files
+Plug 'guns/vim-clojure-static'         " clojure runtime files (required by vim-clojure-highlight)
 Plug 'kien/rainbow_parentheses.vim'    " highlight parens
 Plug 'eraserhd/parinfer-rust', {'do':
         \ 'cargo build --release'}
-Plug 'clojure-vim/acid.nvim', {'do':
-        \ ':UpdateRemotePlugin'}       " async clojure interactive development
-
+"Plug 'clojure-vim/acid.nvim', {'do':
+"        \ ':UpdateRemotePlugin'}       " async clojure interactive development
+"
+Plug 'tpope/vim-fireplace'           " clojure repl integration
 Plug 'Shougo/neco-syntax'            " many languages completion (using syntax keywords)
-Plug 'clojure-vim/async-clj-omni'    " clojure completion (using nrepl-python-client)
+"Plug 'clojure-vim/async-clj-omni'    " clojure completion (using nrepl-python-client) for coc.nvim and more
 Plug 'zchee/deoplete-jedi'           " python completion (using jedi)
 
 call plug#end()
