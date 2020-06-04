@@ -1,4 +1,4 @@
-{:user {:jvm-opts   ["-Xmx2g" "--illegal-access=deny"]
+{:user {:jvm-opts   ["-Xmx2g"]
         :plugins    [;;[cider/cider-nrepl "0.21.1"]
                      [cider/cider-nrepl "0.24.0"]
                      [lein-nvd "1.3.1"]
