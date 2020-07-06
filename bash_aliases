@@ -36,3 +36,5 @@ alias la='ls -AG'
 alias l='ls -CFG'
 
 alias psgrep='ps aux | grep -i'
+
+alias awslocal='aws --profile localstack --endpoint-url http://localhost:4576'
