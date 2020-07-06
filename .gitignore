@@ -1,6 +1,7 @@
 /bundle/cache
 /vim/gutentags
 /lein/repl-history
+/clojure/.cpcache
 /config/xmonad/*.hi
 /config/xmonad/*.o
 /config/xmonad/.stack-work/
