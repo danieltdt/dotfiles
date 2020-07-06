@@ -29,7 +29,7 @@ myWorkspaces = [ "1:web", "2:code", "3:bash" ] ++ map show [ 4..9 ]
 -- Custom config
 -- myConfig = desktopConfig
 myConfig = gnomeConfig
-  { terminal           = "alacritty"
+  { terminal           = "kitty"
   , modMask            = mod4Mask
   , workspaces         = myWorkspaces
   , focusedBorderColor = "#5294e2"

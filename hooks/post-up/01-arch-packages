@@ -5,7 +5,7 @@ if command -v pacman > /dev/null; then
 
   echo
   echo pacman -Sy --needed --noconfirm \
-    alacritty bash-completion git ncurses neovim pyenv python2 tmux \
+    bash-completion git kitty ncurses neovim pyenv python2 tmux \
     xmonad xmonad-contrib xmobar
   echo
 fi
@@ -29,5 +29,22 @@ if command -v auracle > /dev/null; then
     rbenv \
     ruby-build \
     stern-bin
+  echo
+
+  echo "---> Download Sway and deps"
+
+  echo
+  echo pacman --needed -S \
+       grim \
+       i3status \
+       kitty \
+       mako \
+       sway \
+       swaybg \
+       swayidle \
+       swaylock \
+       wallutils \
+       waybar \
+       xorg-server-xwayland
   echo
 fi
