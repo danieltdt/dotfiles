@@ -40,3 +40,5 @@
 	cmd = nvim -d -O $LOCAL $REMOTE
 [difftool "nvimdiff"]
 	cmd = nvim -d -O $LOCAL $REMOTE
+[pull]
+	ff = only
