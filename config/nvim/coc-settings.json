@@ -8,6 +8,7 @@
       "additionalSchemes": ["jar", "zipfile"],
       "trace.server": "verbose",
       "initializationOptions": {
+        "macro-defs": {}
       }
     },
     "haskell": {
@@ -30,5 +31,7 @@
       }
     }
   },
-  "java.trace.server": "verbose"
+  "java.trace.server": "verbose",
+  "java.jdt.ls.vmargs": "-javaagent:/usr/share/java/lombok/lombok.jar -Xbootclasspath/a:/usr/share/java/lombok/lombok.jar",
+  "coc.preferences.extensionUpdateCheck": "never"
 }
