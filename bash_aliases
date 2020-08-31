@@ -1,6 +1,7 @@
 #! /bin/bash
 
 alias icat="kitty +kitten icat"
+alias d="kitty +kitten diff"
 alias b="bundle exec"
 alias ccat="pygmentize -O style=monokai -f console256 -g"
 alias n='npm_exec'
