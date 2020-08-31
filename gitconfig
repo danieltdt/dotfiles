@@ -17,6 +17,13 @@
 	pager = delta --plus-color="#012800" --minus-color="#340001"
 [interactive]
 	diffFilter = delta --color-only
+[delta]
+	features = side-by-side line-numbers decorations
+	whitespace-error-style = 22 reverse
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
 [help]
 	autocorrect = -1
 [push]
@@ -30,6 +37,7 @@
 	account = personal
 [diff]
 	tool = nvimdiff
+	colorMoved = default
 [merge]
 	tool = nvimdiff
 [difftool]
