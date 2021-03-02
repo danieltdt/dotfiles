@@ -29,6 +29,10 @@ Plug 'neoclide/coc-json',              {
     \ 'do': 'yarn install --frozen-lockfile',
     \ }
 
+" fzf (not necessary on arch)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " Syntax
 Plug 'w0rp/ale'                        " async lint engine
 Plug 'editorconfig/editorconfig-vim'   " load code style definitions
