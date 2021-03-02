@@ -16,24 +16,28 @@
   ;; :paths ["src"]
 
   ;; External dependencies
- 
+
   ;; :deps {
   ;;   org.clojure/clojure {:mvn/version "1.10.0"}
   ;; }
 
   ;; Aliases
-	;;   resolve-deps aliases (-R) affect dependency resolution, options:
-	;;     :extra-deps - specifies extra deps to add to :deps
-	;;     :override-deps - specifies a coordinate to use instead of that in :deps
-	;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
-	;;   make-classpath aliases (-C) affect the classpath generation, options:
-	;;     :extra-paths - vector of additional paths to add to the classpath
-	;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
+  ;;   resolve-deps aliases (-R) affect dependency resolution, options:
+  ;;     :extra-deps - specifies extra deps to add to :deps
+  ;;     :override-deps - specifies a coordinate to use instead of that in :deps
+  ;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
+  ;;   make-classpath aliases (-C) affect the classpath generation, options:
+  ;;     :extra-paths - vector of additional paths to add to the classpath
+  ;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
 
   ;; :aliases {
   ;;   :deps {:extra-deps {org.clojure/tools.deps.alpha {:mvn/version "0.6.496"}}}
   ;;   :test {:extra-paths ["test"]}
   ;; }
+  :aliases {:repl {:extra-deps {nrepl/nrepl {:mvn/version "0.8.3"}}
+                   :main-opts ["-m" "nrepl.cmdline"
+                               "--interactive"
+                               "--color"]}}}
 
   ;; Provider attributes
 
@@ -41,4 +45,4 @@
   ;;   "central" {:url "https://repo1.maven.org/maven2/"}
   ;;   "clojars" {:url "https://repo.clojars.org/"}
   ;; }
-}
+
