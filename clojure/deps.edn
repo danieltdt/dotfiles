@@ -40,6 +40,12 @@
                                 "--main" "nrepl.cmdline"
                                 "--interactive"
                                 "--color"]}
+            ;; run tests using `clojure -M:test` (see https://github.com/cognitect-labs/test-runner#usage)
+            :test {:extra-paths ["test"]
+                   :extra-deps  {com.cognitect/test-runner {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                                                            :tag "master"
+                                                            :sha "b6b3193fcc42659d7e46ecd1884a228993441182"}}
+                   :main-opts   ["--main" "cognitect.test-runner"]}}}
 
   ;; Provider attributes
 
