@@ -70,7 +70,7 @@ fi
 
 ########################
 # Enable nvm
-if [[ "$(uname -r)" != *-Microsoft ]]; then # Avoid loading nvm on wsl (improve performance)
+if [[ "$(uname -r)" != *-microsoft* ]]; then # Avoid loading nvm on wsl (improve performance)
   if [[ -s /usr/share/nvm/init-nvm.sh ]]; then
     source /usr/share/nvm/init-nvm.sh
   # Homebrew way
@@ -97,14 +97,14 @@ fi
 
 #########################
 # Enable rbenv shims and autocompletion
-if [[ "$(uname -r)" != *-Microsoft ]]; then # Avoid loading rbenv on wsl (improve performance)
+if [[ "$(uname -r)" != *-microsoft* ]]; then # Avoid loading rbenv on wsl (improve performance)
   export PATH=$HOME/.rbenv/bin:$PATH # Using rbenv
   eval "$(rbenv init - 2> /dev/null)"
 fi
 
 #########################
 # Enable pyenv shims and autocompletion
-if [[ "$(uname -r)" != *-Microsoft ]]; then # Avoid loading pyenv on wsl (improve performance)
+if [[ "$(uname -r)" != *-microsoft* ]]; then # Avoid loading pyenv on wsl (improve performance)
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
   if command -v pyenv 1>/dev/null 2>&1; then
@@ -120,7 +120,7 @@ if which jenv > /dev/null 2>&1; then eval "$(jenv init -)"; fi
 # rbenv prompt (from https://gist.github.com/kyanny/1668822)
 __rbenv_ps1 ()
 {
-  [[ "$(uname -r)" == *-Microsoft ]] && return;
+  [[ "$(uname -r)" == *-microsoft* ]] && return;
   rbenv_ruby_version=`rbenv version 2> /dev/null | sed -e 's/ .*//'`
   printf $rbenv_ruby_version
 }
@@ -128,14 +128,14 @@ __rbenv_ps1 ()
 # nvm prompt
 __nvm_ps1 ()
 {
-  [[ "$(uname -r)" == *-Microsoft ]] && return;
+  [[ "$(uname -r)" == *-microsoft* ]] && return;
   echo `nvm_ls 'current'`
 }
 
 # pyenv prompt
 __pyenv_ps1 ()
 {
-  [[ "$(uname -r)" == *-Microsoft ]] && return;
+  [[ "$(uname -r)" == *-microsoft* ]] && return;
   echo `pyenv version | cut -d' ' -f 1`
 }
 
