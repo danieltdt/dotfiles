@@ -25,6 +25,7 @@ let g:LanguageClient_rootMarkers = { 'haskell': ['*.cabal', 'stack.yaml'] }
 let g:ale_python_pylint_executable = 'pyenv exec pylint'
 let g:ale_haskell_cabal_ghc_options = '-dynamic -fno-code -v0'
 let g:ale_haskell_ghc_options= '-dynamic -fno-code -v0'
+let g:tex_flavor = 'latex'
 
 let g:edge_style = 'neon'
 let g:edge_disable_italic_comment = 1

@@ -59,6 +59,7 @@ Plug 'brandonvin/vim-clojure-highlight', {'for':
 Plug 'slim-template/vim-slim'          " slim support
 Plug 'kchmck/vim-coffee-script'        " coffeescript support
 Plug 'vim-scripts/bats.vim'            " bats (bash) support
+Plug 'google/vim-jsonnet'              " jsonnet support
 
 " Coloschemes
 Plug 'altercation/vim-colors-solarized'
