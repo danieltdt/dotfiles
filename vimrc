@@ -25,9 +25,16 @@ let g:tex_flavor = 'latex'
 let g:edge_style = 'neon'
 let g:edge_disable_italic_comment = 1
 
+" config plugin dart-lang/dart-vim-plugin
+"let dart_html_in_string=v:true  " Enable HTML syntax highlighting inside Dart strings (default false).
+"let g:dart_style_guide = 2      " Enable Dart style guide syntax (like 2-space indentation)
+"let g:dart_format_on_save = 1   " Enable DartFmt execution on buffer save
+"let g:dartfmt_options           " Configure DartFmt options (discover formatter options with dartfmt -h)
+
 " config neovim/nvim-lspconfig
 lua << LUA
 require'lspconfig'.clojure_lsp.setup{}
+require'lspconfig'.dartls.setup{}
 LUA
 
 au BufRead,BufNewFile *.es6         set filetype=javascript

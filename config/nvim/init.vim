@@ -42,6 +42,8 @@ Plug 'slim-template/vim-slim'          " slim support
 Plug 'kchmck/vim-coffee-script'        " coffeescript support
 Plug 'vim-scripts/bats.vim'            " bats (bash) support
 Plug 'google/vim-jsonnet'              " jsonnet support
+Plug 'dart-lang/dart-vim-plugin'       " dart support
+Plug 'thosakwe/vim-flutter'            " flutter support
 
 Plug 'neovim/nvim-lspconfig'           " configs for built-in neovim lsp
 
