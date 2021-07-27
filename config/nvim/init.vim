@@ -45,7 +45,9 @@ Plug 'google/vim-jsonnet'              " jsonnet support
 Plug 'dart-lang/dart-vim-plugin'       " dart support
 Plug 'thosakwe/vim-flutter'            " flutter support
 
-Plug 'neovim/nvim-lspconfig'           " configs for built-in neovim lsp
+Plug 'neovim/nvim-lspconfig'           " configs for built-in neovim LSP
+Plug 'hrsh7th/vim-vsnip'               " LSP snippets
+Plug 'hrsh7th/nvim-compe'              " auto completion with LSP support
 
 " Coloschemes
 Plug 'altercation/vim-colors-solarized'

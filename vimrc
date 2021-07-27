@@ -31,11 +31,30 @@ let g:edge_disable_italic_comment = 1
 "let g:dart_format_on_save = 1   " Enable DartFmt execution on buffer save
 "let g:dartfmt_options           " Configure DartFmt options (discover formatter options with dartfmt -h)
 
-" config neovim/nvim-lspconfig
-lua << LUA
-require'lspconfig'.clojure_lsp.setup{}
-require'lspconfig'.dartls.setup{}
-LUA
+" config plugin hrsh7th/nvim-compe
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.resolve_timeout = 800
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.tags = v:true
+let g:compe.source.spell = v:true
+let g:compe.source.emoji = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.vsnip = v:true
 
 au BufRead,BufNewFile *.es6         set filetype=javascript
 au BufRead,BufNewFile *nginx/*.conf set filetype=nginx
@@ -82,36 +101,37 @@ highlight NonText guibg=NONE ctermbg=NONE
 highlight Normal guibg=NONE ctermbg=NONE
 
 " Behaviors
-set autoread              " Automatically reload changes if detected
-set autowrite             " Writes on make/shell commands
-set cf                    " Enable error files & error jumping.
-set complete+=k           " Enable dictonary on completion
-set foldmethod=syntax     " Enable folding
-set formatoptions=tcrq    " t: autowrap text, c: autowrap comments, r: keep on
-                          "   comment after hitting <enter>, q: format comments
-set hidden                " Change buffer - without saving
-set history=768           " Number of things to remember in history.
-set iskeyword+=$,@        " Add extra characters that are valid parts of variables
-set pastetoggle=<F2>      " Set F2 as paste mode toggler
-set timeoutlen=350        " Time to wait for a command (after leader for example)
-set updatetime=300        " Better for diagnostic messages
-set wildmenu              " Turn on Wild menu
-set wildmode=list:full    " show list and complete with next full match
+set autoread                     " Automatically reload changes if detected
+set autowrite                    " Writes on make/shell commands
+set cf                           " Enable error files & error jumping.
+set complete+=k                  " Enable dictonary on completion
+set completeopt=menuone,noselect " Default config for plugin 'hrsh7th/nvim-compe'
+set foldmethod=syntax            " Enable folding
+set formatoptions=tcrq           " t: autowrap text, c: autowrap comments, r: keep on
+                                 "   comment after hitting <enter>, q: format comments
+set hidden                       " Change buffer - without saving
+set history=768                  " Number of things to remember in history.
+set iskeyword+=$,@               " Add extra characters that are valid parts of variables
+set pastetoggle=<F2>             " Set F2 as paste mode toggler
+set timeoutlen=350               " Time to wait for a command (after leader for example)
+set updatetime=300               " Better for diagnostic messages
+set wildmenu                     " Turn on Wild menu
+set wildmode=list:full           " show list and complete with next full match
 
 " Text Format
-set autoindent            " Copy indent from current line when adding a new one
-set backspace=2           " Delete everything with backspace
-set expandtab             " Expand <tab> as spaces
-set shiftwidth=2          " Columns indented using >> and << or smart indent
-set smartindent           " Smart indent like a C-program
-set smarttab              " Let <tab> and <bs> check shiftwidth or tabstop
-set softtabstop=2         " Number of spaces to count while editing
+set autoindent                   " Copy indent from current line when adding a new one
+set backspace=2                  " Delete everything with backspace
+set expandtab                    " Expand <tab> as spaces
+set shiftwidth=2                 " Columns indented using >> and << or smart indent
+set smartindent                  " Smart indent like a C-program
+set smarttab                     " Let <tab> and <bs> check shiftwidth or tabstop
+set softtabstop=2                " Number of spaces to count while editing
 
 " Searching
-set hlsearch              " Highligh search results
-set ignorecase            " Case insensitive search
-set incsearch             " Show matching cases while typing
-set smartcase             " Override ignorecase if pattern contains upper case chars
+set hlsearch                     " Highligh search results
+set ignorecase                   " Case insensitive search
+set incsearch                    " Show matching cases while typing
+set smartcase                    " Override ignorecase if pattern contains upper case chars
 
 set wildignore+=.git,.git/*,.svn,.svn/*                              " version control files
 set wildignore+=*.o,*.out,*.obj,*.pyc,*.rbc,*.class,*.jar,*.gem      " compiled files
@@ -125,7 +145,7 @@ set wildignore+=target/*,classes/*,.lein-*,tmp/*
 
 " Mappings
 " Use space key as leader
-let mapleader = "\<Space>"
+"let mapleader = "\<Space>"
 
 " Disable arrows
 noremap <Up> <Nop>
@@ -166,3 +186,72 @@ inoremap <leader>mj <Esc>:m .+1<CR>==gi
 inoremap <leader>mk <Esc>:m .-2<CR>==gi
 vnoremap <leader>mj :m '>+1<CR>gv=gv
 vnoremap <leader>mk :m '<-2<CR>gv=gv
+
+" mappings for plugin hrsh7th/nvim-compe
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+" config neovim/nvim-lspconfig
+" LSP most common mappings
+lua << LUA
+local nvim_lsp = require('lspconfig')
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  --Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+end
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { "pyright", "rust_analyzer", "tsserver", "clojure_lsp", "dartls" }
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+LUA
