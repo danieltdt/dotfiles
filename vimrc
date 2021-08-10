@@ -194,6 +194,34 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
+" config hrsh7th/vim-vsnip
+" Expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+nmap        s   <Plug>(vsnip-select-text)
+xmap        s   <Plug>(vsnip-select-text)
+nmap        S   <Plug>(vsnip-cut-text)
+xmap        S   <Plug>(vsnip-cut-text)
+
+" If you want to use snippet for multiple filetypes, you can `g:vsnip_filetypes` for it.
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.javascriptreact = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['typescript']
+
+
 " config neovim/nvim-lspconfig
 " LSP most common mappings
 lua << LUA
@@ -223,6 +251,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
@@ -254,4 +283,7 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+-- config akinsho/flutter-tools.nvim plugin
+require("flutter-tools").setup{} -- use defaults
 LUA

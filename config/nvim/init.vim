@@ -44,9 +44,12 @@ Plug 'vim-scripts/bats.vim'            " bats (bash) support
 Plug 'google/vim-jsonnet'              " jsonnet support
 Plug 'dart-lang/dart-vim-plugin'       " dart support
 Plug 'thosakwe/vim-flutter'            " flutter support
+Plug 'nvim-lua/plenary.nvim'           " akinsho/flutter-tools.nvim dependency
+Plug 'akinsho/flutter-tools.nvim'      " additional flutter tools
 
 Plug 'neovim/nvim-lspconfig'           " configs for built-in neovim LSP
-Plug 'hrsh7th/vim-vsnip'               " LSP snippets
+Plug 'hrsh7th/vim-vsnip'               " Snippets plugin
+Plug 'hrsh7th/vim-vsnip-integ'         " snippets integration with LSP
 Plug 'hrsh7th/nvim-compe'              " auto completion with LSP support
 
 " Coloschemes
