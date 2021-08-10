@@ -19,7 +19,7 @@ alias jbq='jet --from json --to edn --keywordize | bb -I --stream'
 alias bbjq='bb "(json/parse-stream *in* true)" | bb'
 # curl -s 'https://api.github.com/repos/borkdude/clj-kondo/commits?per_page=5' | bbjq '(->> *input* (map (comp :login :author)))'
 
-grep_options='--exclude-dir=node_modules --exclude-dir=.bundle --exclude-dir=.git --exclude-dir=coverage --exclude-dir=.clj-kondo'
+grep_options='--color=auto --exclude-dir=node_modules --exclude-dir=.bundle --exclude-dir=.git --exclude-dir=coverage --exclude-dir=.clj-kondo'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -27,7 +27,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
-    grep_options="$grep_options --color=auto"
+    #grep_options="$grep_options --color=auto"
 fi
 alias grep="grep $grep_options"
 alias fgrep="fgrep $grep_options"

@@ -31,24 +31,32 @@ function print_pre_prompt {
       spacing_correction=$(($spacing_correction - 22))
     fi
 
-    local python="$(__pyenv_ps1 2> /dev/null)"
-    if [[ "x$python" != "x" ]]; then
-      python="(${style_python} ${python}${style_normal}) "
+    local python=''
+    if [[ -z "$PROMPT_NO_PYTHON" ]]; then
+      python="$(__pyenv_ps1 2> /dev/null)"
+      if [[ "x$python" != "x" ]]; then
+        python="(${style_python} ${python}${style_normal}) "
+      fi
     fi
 
-    local ruby="$(__rbenv_ps1 2> /dev/null)"
-    if [[ "x$ruby" != "x" ]]; then
-      ruby="(${style_ruby} ${ruby}${style_normal}) "
+    local ruby=''
+    if [[ -z "$PROMPT_NO_RUBY" ]]; then
+      ruby="$(__rbenv_ps1 2> /dev/null)"
+      if [[ "x$ruby" != "x" ]]; then
+        ruby="(${style_ruby} ${ruby}${style_normal}) "
+      fi
     fi
 
-    local nvm="$(__nvm_ps1 2> /dev/null)"
-    if [[ "x$nvm" != "x" ]]; then
-      nvm="(${style_node} ${nvm}${style_normal})"
+    local nvm=''
+    if [[ -z "$PROMPT_NO_NVM" ]]; then
+      nvm="$(__nvm_ps1 2> /dev/null)"
+      if [[ "x$nvm" != "x" ]]; then
+        nvm="(${style_node} ${nvm}${style_normal})"
+      fi
     fi
 
     local left="${ssh_flag}${style_name_at_host}$USER@$HOSTNAME${style_normal} ${color}$dir${style_normal} $(__git_ps1 ' %s')"
     local right="${python}${ruby}${nvm}"
-
 
     if [[ "x$right" == "x" ]]; then
       spacing_correction=0

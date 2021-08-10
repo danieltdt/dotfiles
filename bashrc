@@ -17,8 +17,8 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -95,6 +95,10 @@ if [[ -f /usr/share/fzf/completion.bash ]]; then
   . /usr/share/fzf/completion.bash
 fi
 
+if [[ -f ~/.fzf.bash ]]; then
+  . ~/.fzf.bash
+fi
+
 #########################
 # Enable rbenv shims and autocompletion
 if [[ "$(uname -r)" != *-microsoft* ]]; then # Avoid loading rbenv on wsl (improve performance)
@@ -109,7 +113,7 @@ if [[ "$(uname -r)" != *-microsoft* ]]; then # Avoid loading pyenv on wsl (impro
   export PATH="$PYENV_ROOT/bin:$PATH"
   if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+    eval "$(pyenv virtualenv-init - 2> /dev/null)"
   fi
 fi
 
@@ -193,7 +197,9 @@ fi
 
 ##########################
 # load direnv
-eval "$(direnv hook bash)"
+if command -v direnv 1>/dev/null 2>&1; then
+  eval "$(direnv hook bash)"
+fi
 
 ##########################
 # load m-cli (github.com/rgcr/m-cli)
