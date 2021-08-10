@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if command -v pacman > /dev/null; then
-  echo "---> Install the following packages"
+  echo "----> Install the following packages"
 
   echo
   echo pacman -Sy --needed --noconfirm \
@@ -11,7 +11,7 @@ if command -v pacman > /dev/null; then
 fi
 
 if command -v auracle > /dev/null; then
-  echo "---> Download and install the following aur packages"
+  echo "----> Download and install the following aur packages"
 
   echo
   echo auracle clone \
@@ -31,7 +31,7 @@ if command -v auracle > /dev/null; then
     stern-bin
   echo
 
-  echo "---> Download Sway and deps"
+  echo "----> Download Sway and deps"
 
   echo
   echo pacman --needed -S \
