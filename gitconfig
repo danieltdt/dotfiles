@@ -14,17 +14,25 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
-	pager = delta --plus-color="#012800" --minus-color="#340001"
+    pager = delta
+
 [interactive]
-	diffFilter = delta --color-only
+    diffFilter = delta --color-only --features=interactive
+
 [delta]
-	#features = side-by-side line-numbers decorations
-	features = line-numbers decorations
-	whitespace-error-style = 22 reverse
+    features = decorations
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
 [delta "decorations"]
-	commit-decoration-style = bold yellow box ul
-	file-style = bold yellow ul
-	file-decoration-style = none
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
 [help]
 	autocorrect = -1
 [push]
@@ -51,3 +59,5 @@
 	cmd = nvim -d -O $LOCAL $REMOTE
 [pull]
 	ff = only
+[include]
+        path = ~/.private_gitconfig
