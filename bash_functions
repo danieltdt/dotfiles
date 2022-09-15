@@ -1,5 +1,9 @@
 #!/bin/bash
 
+bsh () {
+  pyenv exec python -c "import blurhash; print(blurhash.encode('$1', 4, 3))"
+}
+
 datomic () {
   local datomic_version=""
   case "${1}" in
