@@ -1,0 +1,4 @@
+#!/bin/sh
+
+touch ~/.private_gitconfig
+touch ~/.config/kitty/.private.conf
