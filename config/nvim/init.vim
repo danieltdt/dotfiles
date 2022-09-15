@@ -47,6 +47,8 @@ Plug 'thosakwe/vim-flutter'            " flutter support
 Plug 'nvim-lua/plenary.nvim'           " akinsho/flutter-tools.nvim dependency
 Plug 'akinsho/flutter-tools.nvim'      " additional flutter tools
 
+Plug 'mfussenegger/nvim-dap'           " debug adapter protocol for nvim
+Plug 'rcarriga/nvim-dap-ui'            " UI for debugging
 Plug 'neovim/nvim-lspconfig'           " configs for built-in neovim LSP
 Plug 'hrsh7th/vim-vsnip'               " Snippets plugin
 Plug 'hrsh7th/vim-vsnip-integ'         " snippets integration with LSP
@@ -60,6 +62,7 @@ Plug 'EHartC/Spink'
 Plug 'vim-scripts/twilight256.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sainnhe/edge'
+Plug 'EdenEast/nightfox.nvim'
 
 " Dictionaries
 Plug 'guileen/vim-node-dict'
@@ -78,12 +81,15 @@ Plug 'wfleming/vim-codeclimate'        " codeclimate support
 Plug 'beloglazov/vim-online-thesaurus' " thesaurus online
 Plug 'junegunn/vader.vim'              " vimscript test framework
 Plug 'mzlogin/vim-markdown-toc'        " table of contents generator
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " incremental parsing lib (better highlights)
 
 " For Lisp dialects (emacs flavors)
-Plug 'kien/rainbow_parentheses.vim'    " highlight parens
-Plug 'eraserhd/parinfer-rust', {'do':
-        \ 'cargo build --release'}
-Plug 'tpope/vim-fireplace'           " clojure repl integration
+Plug 'kien/rainbow_parentheses.vim' " highlight parens
+Plug 'tpope/vim-fireplace'          " clojure repl integration
+Plug 'guns/vim-clojure-static'      " required by guns/vim-clojure-highlight
+Plug 'guns/vim-clojure-highlight'   " extends bultin clojure highlight
+Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'} " paraedit++
+Plug 'guns/vim-sexp', {'for': 'clojure'}                       " s-exp support
 
 call plug#end()
 

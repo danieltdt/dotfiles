@@ -9,21 +9,12 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-" config plugin guns/vim-clojure-static
-let g:clojure_maxlines = 0
-let g:clojure_align_multiline_strings = 1
-let g:clojure_align_subforms = 1
-
 " config plugin bling/vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'edge'
 
 " config plugin lervag/vimtex
 let g:tex_flavor = 'latex'
-
-" config plugin sainnhe/edge
-let g:edge_style = 'neon'
-let g:edge_disable_italic_comment = 1
 
 " config plugin dart-lang/dart-vim-plugin
 "let dart_html_in_string=v:true  " Enable HTML syntax highlighting inside Dart strings (default false).
@@ -92,6 +83,42 @@ set textwidth=80          " Make 80th column visible
 set wrap                  " Line wrapping on
 
 " Colors
+" config plugin sainnhe/edge (colorscheme)
+let g:edge_style = 'neon'
+let g:edge_better_performance = 1
+"let g:edge_disable_italic_comment = 1
+"let g:edge_transparent_background = 1
+
+function! s:edge_custom() abort
+  " Link a highlight group to a predefined highlight group.
+  " See `colors/edge.vim` for all predefined highlight groups.
+  "" clojure builtin groups
+  "highlight! link clojureDefine   Purple
+  "highlight! link clojureFunc     Blue
+  "highlight! link clojureMacro    Purple
+  "highlight! link clojureVariable White
+
+  " Initialize the color palette.
+  " The first parameter is a valid value for `g:edge_style`,
+  " the second parameter is a valid value for `g:edge_dim_foreground`,
+  " and the third parameter is a valid value for `g:edge_colors_override`.
+  let l:palette = edge#get_palette('neon', 0, {})
+
+  " Define a highlight group.
+  " The first parameter is the name of a highlight group,
+  " the second parameter is the foreground color,
+  " the third parameter is the background color,
+  " the fourth parameter is for UI highlighting which is optional,
+  " and the last parameter is for `guisp` which is also optional.
+  " See `autoload/edge.vim` for the format of `l:palette`.
+  call edge#highlight('groupE', l:palette.red, l:palette.none, 'undercurl', l:palette.red)
+endfunction
+
+augroup EdgeCustom
+  autocmd!
+  autocmd ColorScheme edge call s:edge_custom()
+augroup END
+
 colorscheme edge
 
 set background=dark
@@ -156,6 +183,18 @@ noremap <Right> <Nop>
 " map paste mode (fixes autoident on terminal)
 nnoremap <F2> :set invpaste paste?<CR>
 
+" Identify the syntax highlighting group used at the cursor
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+nnoremap <F10> :call SynStack()<CR>
+nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " toggle nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
@@ -167,8 +206,9 @@ nnoremap <tab> :tabnext<cr>
 nnoremap <s-tab> :tabprevious<cr>
 
 nnoremap <c-p> :FZF<CR>
-nnoremap <leader>b :call fzf#run({'source': map(range(1, bufnr('$')), 'bufname(v:val)'),
-                              \ 'sink': 'e', 'down': '30%'})<CR>
+nnoremap <leader>b :Buffers<CR>
+"nnoremap <leader>b :call fzf#run({'source': map(range(1, bufnr('$')), 'bufname(v:val)'),
+"                              \ 'sink': 'e', 'down': '30%'})<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -263,7 +303,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "rust_analyzer", "tsserver", "clojure_lsp", "dartls" }
+local servers = { "pyright", "rust_analyzer", "tsserver", "clojure_lsp" }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -278,6 +318,7 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
+    highlight = true,
     flags = {
       debounce_text_changes = 150,
     }
@@ -285,5 +326,53 @@ for _, lsp in ipairs(servers) do
 end
 
 -- config akinsho/flutter-tools.nvim plugin
-require("flutter-tools").setup{} -- use defaults
+require("flutter-tools").setup{
+  debugger = { enabled = true },
+  dev_tools = {
+    autostart = true,
+    auto_open_browser = true
+  },
+  outline = {
+    auto_open = true
+  },
+  lsp = {
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
+}
+
+-- config nvim-treesitter plugin
+require('nvim-treesitter.configs').setup {
+  -- A list of parser names, or "all"
+  ensure_installed = { "clojure", "dart" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  auto_install = true,
+
+  -- List of parsers to ignore installing (for "all")
+  ignore_install = { "javascript" },
+
+  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    --disable = { "clojure" },
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
 LUA
