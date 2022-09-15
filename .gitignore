@@ -6,3 +6,4 @@
 /config/xmonad/*.o
 /config/xmonad/.stack-work/
 /config/xmonad/stack.yaml.lock
+/clojure/.lsp
