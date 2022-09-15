@@ -1,4 +1,5 @@
 #!/bin/sh
 
+echo "----> Touching private files..."
 touch ~/.private_gitconfig
 touch ~/.config/kitty/.private.conf
