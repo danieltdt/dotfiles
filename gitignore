@@ -31,3 +31,6 @@
 /.coffeelint.json
 
 /.lsp
+
+.pub-cache
+.gradle

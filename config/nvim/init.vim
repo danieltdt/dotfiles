@@ -50,9 +50,14 @@ Plug 'akinsho/flutter-tools.nvim'      " additional flutter tools
 Plug 'mfussenegger/nvim-dap'           " debug adapter protocol for nvim
 Plug 'rcarriga/nvim-dap-ui'            " UI for debugging
 Plug 'neovim/nvim-lspconfig'           " configs for built-in neovim LSP
-Plug 'hrsh7th/vim-vsnip'               " Snippets plugin
+Plug 'hrsh7th/nvim-cmp'                " auto completion plugin
+Plug 'hrsh7th/cmp-nvim-lsp'            " auto completion for LSP
+Plug 'hrsh7th/cmp-buffer'              " auto completion for buffer words
+Plug 'hrsh7th/cmp-path'                " auto completion for filesystem paths
+Plug 'hrsh7th/cmp-cmdline'             " auto completion for vim's cmdline
+Plug 'hrsh7th/cmp-vsnip'               " auto completion for snippets
+Plug 'hrsh7th/vim-vsnip'               " snippets plugin
 Plug 'hrsh7th/vim-vsnip-integ'         " snippets integration with LSP
-Plug 'hrsh7th/nvim-compe'              " auto completion with LSP support
 
 " Coloschemes
 Plug 'altercation/vim-colors-solarized'
@@ -88,6 +93,7 @@ Plug 'kien/rainbow_parentheses.vim' " highlight parens
 Plug 'tpope/vim-fireplace'          " clojure repl integration
 Plug 'guns/vim-clojure-static'      " required by guns/vim-clojure-highlight
 Plug 'guns/vim-clojure-highlight'   " extends bultin clojure highlight
+"Plug 'Olical/conjure'
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'} " paraedit++
 Plug 'guns/vim-sexp', {'for': 'clojure'}                       " s-exp support
 

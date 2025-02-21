@@ -1,30 +1,31 @@
 [user]
-	name = Daniel Teixeira
-	email = daniel.t.dt@gmail.com
+    name = Daniel Teixeira
+    email = daniel.t.dt@gmail.com
 [alias]
-	st = status
-	co = checkout
-	ci = commit
-	last = cat-file commit HEAD
-	colete = blame
-        tree = log --graph --pretty=oneline --decorate=short --abbrev-commit
-        #changelog = "!f() { git log --no-merges --pretty='format:%an - %s' $1 | sed 's/.\\+ - \\(.*\\)/\\1/' | GREP_OPTIONS='' \\egrep -v '[skip changelog]' -i | awk '!_[$0]++'; }; f"
-        changelog = "!f() { git log --no-merges --pretty='format:%an - %s' $1 | sed 's/.\\+ - \\(.*\\)/\\1/' | GREP_OPTIONS='' \\grep -v '\\[skip changelog\\]'; }; f"
-        ignored = !git ls-files -v | grep "^[[:lower:]]"
+    st = status
+    co = checkout
+    ci = commit
+    last = cat-file commit HEAD
+    colete = blame
+    tree = log --graph --pretty=oneline --decorate=short --abbrev-commit
+    #changelog = "!f() { git log --no-merges --pretty='format:%an - %s' $1 | sed 's/.\\+ - \\(.*\\)/\\1/' | GREP_OPTIONS='' \\egrep -v '[skip changelog]' -i | awk '!_[$0]++'; }; f"
+    changelog = "!f() { git log --no-merges --pretty='format:%an - %s' $1 | sed 's/.\\+ - \\(.*\\)/\\1/' | GREP_OPTIONS='' \\grep -v '\\[skip changelog\\]'; }; f"
+    ignored = !git ls-files -v | grep "^[[:lower:]]"
+    dft = difftool
+    dlog = "-c diff.external=difft log -p --ext-diff"
 [core]
-	excludesfile = ~/.gitignore
-	editor = nvim
+    #attributesfile = ~/.gitattributes
+    excludesfile = ~/.gitignore
+    editor = nvim
     pager = delta
-
 [interactive]
     diffFilter = delta --color-only --features=interactive
-
 [delta]
     features = decorations
-
+    navigate = true
+    dark = true
 [delta "interactive"]
     keep-plus-minus-markers = false
-
 [delta "decorations"]
     commit-decoration-style = blue ol
     commit-style = raw
@@ -34,30 +35,47 @@
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
 [help]
-	autocorrect = -1
+    autocorrect = -1
 [push]
-	default = simple
+    default = simple
 [color]
 	diff = auto
 	status = auto
 	branch = auto
-	ui = true
+    ui = true
 [heroku]
-	account = personal
+    account = personal
 [diff]
-	tool = nvimdiff
-	colorMoved = default
-[merge]
-	tool = nvimdiff
+    colorMoved = default
+    #tool = nvimdiff
+    tool = difftastic
 [difftool]
-	prompt = false
-[mergetool]
-	prompt = false
-[mergetool "nvimdiff"]
-	cmd = nvim -d -O $LOCAL $REMOTE
+    prompt = false
 [difftool "nvimdiff"]
-	cmd = nvim -d -O $LOCAL $REMOTE
+    cmd = nvim -d -O $LOCAL $REMOTE
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+#[diff "clojure"]
+#    xfuncname="^\\(((s/)*def\\S+(\\s+|$))"
+[merge]
+    tool = nvimdiff
+    conflictstyle = diff3
+[mergetool]
+    prompt = false
+[mergetool "nvimdiff"]
+    cmd = nvim -d -O $LOCAL $REMOTE
+[pager]
+    difftool = true
 [pull]
-	ff = only
+    ff = only
 [include]
-        path = ~/.private_gitconfig
+    path = ~/.private_gitconfig
+[includeIf "gitdir:/Users/daniel.teixeira2/dev/nu/"]
+    path = /Users/daniel.teixeira2/.nugitconfig
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    clean = git-lfs clean -- %f
+    required = true
+[url "git@github.com:"]
+	insteadOf = git://github.com/
