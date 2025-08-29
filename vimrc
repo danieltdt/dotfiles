@@ -113,7 +113,9 @@ set formatoptions=tcrq           " t: autowrap text, c: autowrap comments, r: ke
 set hidden                       " Change buffer - without saving
 set history=768                  " Number of things to remember in history.
 set iskeyword+=$,@               " Add extra characters that are valid parts of variables
-set pastetoggle=<F2>             " Set F2 as paste mode toggler
+if !has('nvim')
+  set pastetoggle=<F2>             " Set F2 as paste mode toggler
+endif
 set timeoutlen=350               " Time to wait for a command (after leader for example)
 set updatetime=300               " Better for diagnostic messages
 set wildmenu                     " Turn on Wild menu
@@ -227,6 +229,22 @@ xmap        S   <Plug>(vsnip-cut-text)
 let g:vsnip_filetypes = {}
 let g:vsnip_filetypes.javascriptreact = ['javascript']
 let g:vsnip_filetypes.typescriptreact = ['typescript']
+
+" config clojure-lsp
+function! Expand(exp) abort
+    let l:result = expand(a:exp)
+    return l:result ==# '' ? '' : "file://" . l:result
+endfunction
+
+nnoremap <silent> crcc :call LanguageClient#workspace_executeCommand('cycle-coll', [Expand('%:p'), line('.') - 1, col('.') - 1])<CR>
+nnoremap <silent> crth :call LanguageClient#workspace_executeCommand('thread-first', [Expand('%:p'), line('.') - 1, col('.') - 1])<CR>
+nnoremap <silent> crtt :call LanguageClient#workspace_executeCommand('thread-last', [Expand('%:p'), line('.') - 1, col('.') - 1])<CR>
+nnoremap <silent> crtf :call LanguageClient#workspace_executeCommand('thread-first-all', [Expand('%:p'), line('.') - 1, col('.') - 1])<CR>
+nnoremap <silent> crtl :call LanguageClient#workspace_executeCommand('thread-last-all', [Expand('%:p'), line('.') - 1, col('.') - 1])<CR>
+nnoremap <silent> crml :call LanguageClient#workspace_executeCommand('move-to-let', [Expand('%:p'), line('.') - 1, col('.') - 1, input('Binding name: ')])<CR>
+nnoremap <silent> cril :call LanguageClient#workspace_executeCommand('introduce-let', [Expand('%:p'), line('.') - 1, col('.') - 1, input('Binding name: ')])<CR>
+nnoremap <silent> crel :call LanguageClient#workspace_executeCommand('expand-let', [Expand('%:p'), line('.') - 1, col('.') - 1])<CR>
+nnoremap <silent> cram :call LanguageClient#workspace_executeCommand('add-missing-libspec', [Expand('%:p'), line('.') - 1, col('.') - 1])<CR>
 
 lua << LUA
 local lspconfig = require('lspconfig')

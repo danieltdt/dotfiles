@@ -2,6 +2,10 @@
 /vim/gutentags
 /lein/repl-history
 /clojure/.cpcache
+/clojure/.clj-kondo
+!/clojure/.clj-kondo/config.edn
+/clojure/.lsp
+!/clojure/.lsp/config.edn
 /config/xmonad/*.hi
 /config/xmonad/*.o
 /config/xmonad/.stack-work/

@@ -75,10 +75,8 @@ if [[ "$(uname -r)" != *-microsoft* ]]; then # Avoid loading nvm on wsl (improve
     source /usr/share/nvm/init-nvm.sh
   # Homebrew way
   elif [ "$(uname)" == "Darwin" ]; then
-    if [ -f `brew --prefix nvm`/nvm.sh ]; then
-      export NVM_DIR=~/.nvm
-      . $(brew --prefix nvm)/nvm.sh
-    fi
+    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
   else
     [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"  # This loads NVM
     [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
@@ -175,7 +173,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 
 export EDITOR='nvim'
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$HOME/.local/python-libs:/usr/lib/python3.4/site-packages
+#export PYTHONPATH=$HOME/.local/python-libs:/usr/lib/python3.4/site-packages
 #export M2_HOME=/opt/maven                             # Maven home
 #export M2=$M2_HOME/bin                                # Maven bin
 export IRBRC=$HOME/.irbrc                             # irb config
