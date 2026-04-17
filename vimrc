@@ -247,7 +247,6 @@ nnoremap <silent> crel :call LanguageClient#workspace_executeCommand('expand-let
 nnoremap <silent> cram :call LanguageClient#workspace_executeCommand('add-missing-libspec', [Expand('%:p'), line('.') - 1, col('.') - 1])<CR>
 
 lua << LUA
-local lspconfig = require('lspconfig')
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
@@ -263,14 +262,15 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 for _, server in ipairs(servers) do
-  lspconfig[server].setup {
+  vim.lsp.config(server, {
     on_attach = on_attach,
     capabilities = capabilities,
     highlight = true,
     flags = {
       debounce_text_changes = 150,
     }
-  }
+  })
+  vim.lsp.enable(server)
 end
 
 --
@@ -345,7 +345,7 @@ require("flutter-tools").setup{
 --
 -- config nvim-treesitter plugin
 --
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter').setup {
   -- A list of parser names, or "all"
   ensure_installed = { "clojure", "dart" },
 

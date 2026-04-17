@@ -93,7 +93,7 @@ Plug 'kien/rainbow_parentheses.vim' " highlight parens
 Plug 'tpope/vim-fireplace'          " clojure repl integration
 Plug 'guns/vim-clojure-static'      " required by guns/vim-clojure-highlight
 Plug 'guns/vim-clojure-highlight'   " extends bultin clojure highlight
-"Plug 'Olical/conjure'
+Plug 'Olical/conjure'
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'} " paraedit++
 Plug 'guns/vim-sexp', {'for': 'clojure'}                       " s-exp support
 
